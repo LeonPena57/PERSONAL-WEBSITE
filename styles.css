@@ -1,0 +1,281 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Montserrat";
+    background-image: url('./images/BG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: white;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0; /* Remove padding to eliminate space above */
+    position: relative;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; /* Your background color */
+    opacity: 0.1; /* Adjust the opacity as needed */
+    z-index: -1; /* Ensure the background is behind the content */
+}
+
+
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; /* Replace with your desired font weight */
+    font-style: normal;
+}
+
+.luckiest-guy-regular {
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.slanted-text { /* SLANTS WELCOME TEXT */
+    transform: rotate(-5deg); /* Tilt the text slightly */
+}
+
+nav {
+    background-color: rgba(31, 31, 31, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0; /* Adjust padding to center text vertically */
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5)); /* Add drop shadow to the logo */
+}
+
+nav ul li a {
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+}
+
+
+nav ul li .logo {
+    height: 50px;
+}
+
+#gradient-text {
+    background: linear-gradient(to bottom, #ffffff, #ffffff 50%, #bdbdbd 50%, #bdbdbd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff; /* Circle outline */
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #fff; /* Triangle color */
+    animation: bounce 2s infinite;
+    position: relative;
+    top: 2px;
+}
+
+
+.header-content h1 {
+    font-size: 18em;
+    margin: -65px 0 0;
+}
+
+.header-content p {
+    font-size: 5em;
+    margin: 15px 0 -25px;
+}
+
+.scroll-indicator {
+    font-size: 2em;
+    animation: bounce 2s infinite;
+    position: relative;
+    margin: 20px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+.container, .New-Products {
+    text-align: center;
+    font-family: 'Trueno', sans-serif;
+}
+
+.New-Products {
+    margin-top: 100px;
+}
+
+.boxes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Maintain spacing between boxes */
+    flex-wrap: wrap;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Set consistent height */
+    padding: 15px;
+    margin: 10px;
+}
+
+.white-box {
+    background-color: white;
+    color: #FF6F61;
+}
+
+.color-box {
+    background-color: #FF6F61;
+    color: white;
+}
+
+.logo-box {
+    background-color: white;
+}
+
+.logo-box img {
+    max-width: 100%;
+    height: auto; /* Ensures logo fits well within the box */
+}
+
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 50%;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+#trust ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#sales .icon-tag {
+    /* Add your icon styling here */
+}
+
+#subscription form {
+    display: flex;
+    flex-direction: column;
+}
+
+#subscription label {
+    margin-top: 10px;
+}
+
+#subscription input {
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#products .product {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+#products img {
+    width: 100px;
+    height: 100px;
+}
+
+#products button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    position: relative;
+    width: 100%;
+}
