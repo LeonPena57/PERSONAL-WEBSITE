@@ -242,6 +242,7 @@ section {
     display: flex;
     transition: transform 0.5s ease-in-out;
     justify-content: center; /* Center items within the slide */
+    flex-direction: row; /* Ensure horizontal layout */
 }
 
 .carousel-item {
@@ -293,6 +294,7 @@ section {
 .carousel-arrow.right {
     right: 10px;
 }
+
 
 footer {
     border-radius: 20px;
@@ -348,4 +350,23 @@ footer {
 .footer-bottom {
     border-top: 1px solid #333;
     padding-top: 10px;
+}
+
+
+/* ----------------------------------------------------------- */
+@media screen and (min-width: 2560px) {
+    .carousel-item {
+        width: 200px; /* Adjust size for larger screens */
+        margin: 0 15px; /* Adjust spacing for larger screens */
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .header-content h1 {
+        font-size: 55em;
+    }
+
+    .header-content p {
+        font-size: 12em;
+    }
 }
