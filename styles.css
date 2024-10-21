@@ -12,6 +12,43 @@ body, html {
     color: white;
     overflow-x: hidden;
 }
+/* --------------WORK IN PROGRESS ----------------*/
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1001; /* Higher than header/nav */
+    height: 30px; /* Set the height of the marquee */
+    line-height: 30px; /* Center text vertically */
+}
+
+.marquee {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s linear infinite;
+}
+
+.marquee p {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 16px; /* Adjust font size to fit within the height */
+    line-height: 30px; /* Ensure the text is centered vertically */
+    margin: 0; /* Remove any default margin */
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* --------------- WORK IN PROGRESS END ----------------------- */  
 
 header {
     display: flex;
@@ -21,10 +58,10 @@ header {
     text-align: center;
     padding: 0; /* Remove padding to eliminate space above */
     position: fixed; /* Fixed position to make header follow as you scroll */
-    top: 0;
+    top: 30px; /* Adjust this value to match marquee height */
     width: 100%;
     background-color: rgba(0, 0, 0, 0.1); /* Adjust background color and opacity as needed */
-    z-index: 1000; /* Ensure the header is on top of other elements */
+    z-index: 1000; /* Lower than marquee */
 }
 
 nav {
@@ -310,19 +347,20 @@ section {
 }
 
 .main-image-container img {
-    max-width: 100%;
+    width: 500px; /* Set a fixed width for the big image */
     height: auto;
 }
 
 .thumbnail-container {
     display: flex;
-    justify-content: left;
+    justify-content: flex-start; /* Align thumbnails to the left */
+    width: 500px; /* Ensure it matches the big image */
     margin-top: 10px;
 }
 
 .thumbnail-container img {
-    width: 80px;
-    height: 80px;
+    max-width: 80px;
+    max-height: 80px;
     margin: 0 10px;
     cursor: pointer;
     border: 2px solid transparent;
@@ -334,11 +372,12 @@ section {
 }
 
 .text-box {
-    background: rgba(255, 255, 255, 0.8);
+    background: #2222226f;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    width: 100%; /* Ensure it matches the big image */
+    width: 500px; /* Match the width of the main image */
+    height: 580px; /* Adjust height to match the combined height of the main image and thumbnails more closely */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
@@ -349,7 +388,7 @@ section {
 
 .text-box button {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #FF7373;
     color: white;
     border: none;
     border-radius: 5px;
@@ -358,6 +397,138 @@ section {
 
 .text-box button:hover {
     background-color: #0056b3;
+}
+
+@font-face {
+    font-family: 'Trueno';
+    src: url('./fonts/TRUENOBLK.OTF') format('opentype');
+    font-weight: 900; /* Black weight */
+}
+
+h1 {
+    font-family: 'Trueno', sans-serif;
+    font-weight: 900; /* Ensure it uses the Black weight */
+}
+
+@font-face {
+    font-family: 'Trueno';
+    src: url('./fonts/TRUENOLGT.OTF') format('opentype');
+    font-weight: 300; /* Light weight */
+}
+
+.text-box ul {
+    list-style-type: disc; /* Add bullets */
+    padding-left: 20px; /* Add padding to left-align */
+    text-align: left; /* Align text to the left */
+}
+
+.text-box p {
+    font-family: 'Trueno', sans-serif;
+    font-weight: 300; /* Ensure it uses the Light weight */
+    text-align: left; /* Align text to the left */
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.new-carousel-container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-carousel-background {
+    background-color: rgba(255, 0, 0, 0.55); /* Red with transparency */
+    padding: 20px; /* Add padding */
+    width: 100vw; /* Make the background span the full width of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.new-carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    justify-content: center; /* Center items within the slide */
+    flex-direction: row; /* Ensure horizontal layout */
+}
+
+.new-carousel-item {
+    flex: 0 0 auto;
+    width: 150px; /* Adjust size of images */
+    margin: 0 12.5px; /* 25px total space between items */
+    transition: transform 0.5s, opacity 0.5s;
+    text-align: center;
+    opacity: 0.5; /* Default for unfocused items */
+}
+
+.new-carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensure it's treated as a block-level element */
+}
+
+.new-carousel-item p {
+    margin-top: 10px;
+}
+
+.new-carousel-item.active {
+    opacity: 1;
+    animation: bounceIn 0.5s forwards;
+    z-index: 2; /* Ensure it's on top */
+}
+
+.new-carousel-item.unfocused {
+    animation: bounceOut 0.5s forwards;
+}
+
+.new-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent; /* Make background transparent */
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.new-carousel-arrow svg {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+}
+
+.new-carousel-arrow.left {
+    left: 10px;
+}
+
+.new-carousel-arrow.right {
+    right: 10px;
 }
 
 footer {

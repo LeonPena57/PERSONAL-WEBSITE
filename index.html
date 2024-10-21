@@ -17,6 +17,11 @@
     </style>
 </head>
 <body>
+    <div class="marquee-container">
+        <div class="marquee">
+            <p>This website is currently under active development</p>
+        </div>
+    </div>
     <header>
         <nav>
             <ul>
@@ -61,9 +66,6 @@
                 <div class="triangle"></div>
             </div>
         </div>
-        <div class="New-Products">
-            <h1>-NEW PRODUCTS-</h1>
-        </div>
         <div class="carousel-container">
             <button class="carousel-arrow left" onclick="prevItem()">‹</button>
             <div class="carousel-slide" id="carousel">
@@ -90,27 +92,75 @@
             </div>
             <button class="carousel-arrow right" onclick="nextItem()">›</button>
         </div>
+            <h1 class="New-Products">-NEW PRODUCTS-</h1>
+        </div>
+        <div class="gallery-container">
+            <div class="image-section">
+                <div class="main-image-container">
+                    <img id="main-image" src="./images/Overlay1.png" alt="Main Image">
+                </div>
+                <div class="thumbnail-container">
+                    <img id="thumbnail-1" src="./images/Overlay2.png" alt="Thumbnail 1" onclick="swapImages('thumbnail-1')">
+                    <img id="thumbnail-2" src="./images/Overlay3.png" alt="Thumbnail 2" onclick="swapImages('thumbnail-2')">
+                </div>
+            </div>
+            <div class="text-box">
+                <h1>STREAM OVERLAYS</h1>
+                <p>Along with offering custom overlays, we've created an easy, fast way for you to design your own overlay in no time! Choose from a variety of themes, including:</p>
+                <ul>
+                    <li>Shiny Hunting</li>
+                    <li>General Playthrough</li>
+                    <li>Pokemon VS</li>
+                    <li>Nuzlocke</li>
+                    <li>And Many More!</li>
+                </ul>
+                <p>Your creativity is at the heart of our design. Customize everything, from unique Poké Balls to backgrounds and border colors, and create a personalized overlay that suits your style perfectly!</p>
+                <button>Get Started</button>
+            </div>
+        </div>
+        <div class="new-carousel-container">
+            <div class="new-carousel-arrow left" onclick="prevNewItem()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+                    <path fill="white" d="m12.707 8.707-1.414-1.414L6.586 12l4.707 4.707 1.414-1.414L10.414 13H16v-2h-5.586l2.293-2.293z"/>
+                </svg>
+            </div>
+            <div class="new-carousel-background">
+                <div class="new-carousel-slide" id="new-carousel">
+                    <div class="new-carousel-item">
+                        <img src="./images/LOGO.png" alt="Active Image">
+                        <p class="new-caption">ESPORT GFX</p>
+                    </div>
+                    <div class="new-carousel-item">
+                        <img src="./images/THUMBNAILS-1.png" alt="Overlay Image">
+                        <p class="new-caption">Overlays</p>
+                    </div>
+                    <div class="new-carousel-item">
+                        <img src="./images/THUMBNAILS-2.png" alt="Logo Image">
+                        <p class="new-caption">Logos</p>
+                    </div>
+                    <div class="new-carousel-item">
+                        <img src="./images/THUMBNAILS.png" alt="Thumbnail Image">
+                        <p class="new-caption">Thumbnails</p>
+                    </div>
+                    <div class="new-carousel-item">
+                        <img src="./images/OVERLAYS.png" alt="Video Edit Image">
+                        <p class="new-caption">Video Edits</p>
+                    </div>
+                </div>
+            </div>
+            <div class="new-carousel-arrow right" onclick="nextNewItem()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" style="transform: scaleX(-1);">
+                    <path fill="white" d="m12.707 8.707-1.414-1.414L6.586 12l4.707 4.707 1.414-1.414L10.414 13H16v-2h-5.586l2.293-2.293z"/>
+                </svg>
+            </div>
+        </div>                                             
     </main>
     <footer>
         <div class="footer-content">
             <div class="logos">
                 <a href="index.html"><img src="./images/LOGOSVG.png" alt="Logo 1" class="FooterLogo"></a>
             </div>
-            <div class="gallery-container">
-                <div class="image-section">
-                    <div class="main-image-container">
-                        <img id="main-image" src="./images/Overlay1.png" alt="Main Image">
-                    </div>
-                    <div class="thumbnail-container">
-                        <img id="thumbnail-1" src="./images/Overlay2.png" alt="Thumbnail 1" onclick="swapImages('thumbnail-1')">
-                        <img id="thumbnail-2" src="./images/Overlay3.png" alt="Thumbnail 2" onclick="swapImages('thumbnail-2')">
-                    </div>
-                </div>
-                <div class="text-box">
-                    <p>Write your text here...</p>
-                    <button>Click Me</button>
-                </div>
-            </div>
+            
             <div class="footer-columns">
                 <div class="column">
                     <h3>Quick and easy stream graphics!</h3>
