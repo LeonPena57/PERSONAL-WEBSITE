@@ -58,3 +58,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCarousel();
 });
+
+function swapImages(thumbnailId) {
+    let mainImage = document.getElementById('main-image');
+    let thumbnail = document.getElementById(thumbnailId);
+
+    // Swap the src and sizes of the main image and the clicked thumbnail
+    let tempSrc = mainImage.src;
+    let tempWidth = mainImage.style.width;
+    let tempHeight = mainImage.style.height;
+
+    mainImage.src = thumbnail.src;
+    mainImage.style.width = "100%";
+    mainImage.style.height = "auto";
+    
+    thumbnail.src = tempSrc;
+    thumbnail.style.width = tempWidth;
+    thumbnail.style.height = tempHeight;
+}
