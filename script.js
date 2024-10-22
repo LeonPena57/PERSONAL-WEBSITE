@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Old carousel code
     const carouselSlide = document.getElementById('carousel');
     if (!carouselSlide) {
         console.error('Carousel element not found');
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const itemWidth = items[0].offsetWidth + 25; // Includes the margin
         const offset = (carouselSlide.parentElement.offsetWidth / 2) - (itemWidth / 2);
-        carouselSlide.style.transform = `translateX(-${currentItemIndex * itemWidth - offset}px)`;
+        carouselSlide.style.transform = `translateX(${offset - currentItemIndex * itemWidth}px)`;
     }
 
     function nextItem() {
@@ -57,123 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.prevItem = prevItem;
 
     updateCarousel();
-});
 
-function swapImages(thumbnailId) {
-    let mainImage = document.getElementById('main-image');
-    let thumbnail = document.getElementById(thumbnailId);
-
-    // Swap the src of the main image and the clicked thumbnail
-    let tempSrc = mainImage.src;
-    mainImage.src = thumbnail.src;
-    thumbnail.src = tempSrc;
-
-    // Ensure the sizes and aspect ratios are maintained correctly
-    mainImage.style.width = "500px";
-    mainImage.style.height = "auto";
-    mainImage.style.objectFit = "contain";
-    
-    thumbnail.style.maxWidth = "80px";
-    thumbnail.style.maxHeight = "80px";
-    thumbnail.style.objectFit = "contain";
-}
-document.addEventListener('DOMContentLoaded', () => {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', () => {
-            window.scrollTo({
-                top: window.innerHeight,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            alert('Form submitted!');
-        });
-    }
-
-    const carouselSlide = document.getElementById('carousel');
-    if (!carouselSlide) {
-        console.error('Carousel element not found');
-        return;
-    }
-
-    const items = Array.from(carouselSlide.children);
-    let currentItemIndex = Math.floor(items.length / 2); // Start with the middle item as active
-
-    function updateCarousel() {
-        items.forEach((item, index) => {
-            item.classList.add('unfocused');
-            item.classList.remove('active');
-            if (index === currentItemIndex) {
-                item.classList.remove('unfocused');
-                item.classList.add('active');
-            }
-        });
-        const itemWidth = items[0].offsetWidth + 25; // Includes the margin
-        const offset = (carouselSlide.parentElement.offsetWidth / 2) - (itemWidth / 2);
-        carouselSlide.style.transform = `translateX(-${currentItemIndex * itemWidth - offset}px)`;
-    }
-
-    function nextItem() {
-        currentItemIndex = (currentItemIndex + 1) % items.length;
-        carouselSlide.appendChild(carouselSlide.firstElementChild);
-        updateCarousel();
-    }
-
-    function prevItem() {
-        currentItemIndex = (currentItemIndex - 1 + items.length) % items.length;
-        carouselSlide.insertBefore(carouselSlide.lastElementChild, carouselSlide.firstElementChild);
-        updateCarousel();
-    }
-
-    window.nextItem = nextItem;
-    window.prevItem = prevItem;
-
-    updateCarousel();
-});
-
-function swapImages(thumbnailId) {
-    let mainImage = document.getElementById('main-image');
-    let thumbnail = document.getElementById(thumbnailId);
-
-    // Swap the src of the main image and the clicked thumbnail
-    let tempSrc = mainImage.src;
-    mainImage.src = thumbnail.src;
-    thumbnail.src = tempSrc;
-
-    // Ensure the sizes and aspect ratios are maintained correctly
-    mainImage.style.width = "500px";
-    mainImage.style.height = "auto";
-    mainImage.style.objectFit = "contain";
-
-    thumbnail.style.maxWidth = "80px";
-    thumbnail.style.maxHeight = "80px";
-    thumbnail.style.objectFit = "contain";
-}
-document.addEventListener('DOMContentLoaded', () => {
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', () => {
-            window.scrollTo({
-                top: window.innerHeight,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            alert('Form submitted!');
-        });
-    }
-
+    // New carousel code
     const newCarouselSlide = document.getElementById('new-carousel');
     if (!newCarouselSlide) {
         console.error('New carousel element not found');
@@ -218,22 +104,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateNewCarousel();
 });
-
-function swapImages(thumbnailId) {
-    let mainImage = document.getElementById('main-image');
-    let thumbnail = document.getElementById(thumbnailId);
-
-    // Swap the src of the main image and the clicked thumbnail
-    let tempSrc = mainImage.src;
-    mainImage.src = thumbnail.src;
-    thumbnail.src = tempSrc;
-
-    // Ensure the sizes and aspect ratios are maintained correctly
-    mainImage.style.width = "500px";
-    mainImage.style.height = "auto";
-    mainImage.style.objectFit = "contain";
-
-    thumbnail.style.maxWidth = "80px";
-    thumbnail.style.maxHeight = "80px";
-    thumbnail.style.objectFit = "contain";
-}
