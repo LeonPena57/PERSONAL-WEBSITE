@@ -119,7 +119,7 @@ nav ul li a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 50px 0;
+    padding: 175px 0;
 }
 
 .circle {
@@ -275,7 +275,9 @@ section {
     }
 }
 
-.carousel-container {
+/* ----------- CAROUSEL START ---------- */
+
+.carousel-container, .new-carousel-container {
     position: relative;
     width: 100%;
     margin: auto;
@@ -285,14 +287,14 @@ section {
     align-items: center;
 }
 
-.carousel-slide {
+.carousel-slide, .new-carousel-slide {
     display: flex;
     transition: transform 0.5s ease-in-out;
     justify-content: center; /* Center items within the slide */
     flex-direction: row; /* Ensure horizontal layout */
 }
 
-.carousel-item {
+.carousel-item, .new-carousel-item {
     flex: 0 0 auto;
     width: 150px; /* Adjust size of images */
     margin: 0 12.5px; /* 25px total space between items */
@@ -301,28 +303,28 @@ section {
     opacity: 0.5; /* Default for unfocused items */
 }
 
-.carousel-item img {
+.carousel-item img, .new-carousel-item img {
     width: 100%;
     height: auto;
     display: block; /* Ensure it's treated as a block-level element */
     margin-top: 50px; /* Adjust margin to prevent cut-off at the top */
 }
 
-.carousel-item p {
+.carousel-item p, .new-carousel-item p {
     margin-top: 10px;
 }
 
-.carousel-item.active {
+.carousel-item.active, .new-carousel-item.active {
     opacity: 1;
     animation: bounceIn 0.5s forwards;
     z-index: 2; /* Ensure it's on top */
 }
 
-.carousel-item.unfocused {
+.carousel-item.unfocused, .new-carousel-item.unfocused {
     animation: bounceOut 0.5s forwards;
 }
 
-.carousel-arrow {
+.carousel-arrow, .new-carousel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -334,11 +336,11 @@ section {
     z-index: 1;
 }
 
-.carousel-arrow.left {
+.carousel-arrow.left, .new-carousel-arrow.left {
     left: 10px;
 }
 
-.carousel-arrow.right {
+.carousel-arrow.right, .new-carousel-arrow.right {
     right: 10px;
 }
 
@@ -460,87 +462,6 @@ h1 {
     100% {
         transform: scale(1);
     }
-}
-
-.new-carousel-container {
-    position: relative;
-    width: 100%;
-    margin: auto;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.new-carousel-background {
-    background-color: #291f1fe2; /* Red with transparency */
-    padding: 20px 0; /* Adjust padding */
-    width: 100vw; /* Make the background span the full width of the viewport */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    flex-direction: column; /* Stack items vertically */
-    flex-grow: 1; /* Allow to grow to fill the space */
-}
-
-.new-carousel-slide {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    justify-content: center; /* Center items within the slide */
-    flex-direction: row; /* Ensure horizontal layout */
-}
-
-.new-carousel-item {
-    flex: 0 0 auto;
-    width: 150px; /* Adjust size of images */
-    margin: 0 12.5px; /* 25px total space between items */
-    transition: transform 0.5s, opacity 0.5s;
-    text-align: center;
-    opacity: 0.5; /* Default for unfocused items */
-}
-
-.new-carousel-item img {
-    width: 100%;
-    height: auto;
-    display: block; /* Ensure it's treated as a block-level element */
-}
-
-.new-carousel-item p {
-    margin-top: 10px;
-}
-
-.new-carousel-item.active {
-    opacity: 1;
-    animation: bounceIn 0.5s forwards;
-    z-index: 2; /* Ensure it's on top */
-}
-
-.new-carousel-item.unfocused {
-    animation: bounceOut 0.5s forwards;
-}
-
-.new-carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent; /* Make background transparent */
-    border: none;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.new-carousel-arrow svg {
-    width: 50px; /* Adjust size as needed */
-    height: auto;
-}
-
-.new-carousel-arrow.left {
-    left: 10px;
-}
-
-.new-carousel-arrow.right {
-    right: 10px;
 }
 
 footer {

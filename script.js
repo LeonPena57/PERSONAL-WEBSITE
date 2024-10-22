@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Scroll Indicator
     const scrollIndicator = document.querySelector('.scroll-indicator');
     if (scrollIndicator) {
         scrollIndicator.addEventListener('click', () => {
@@ -9,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Form Submission
     const form = document.querySelector('form');
     if (form) {
         form.addEventListener('submit', (event) => {
@@ -17,90 +19,78 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Old carousel code
-    const carouselSlide = document.getElementById('carousel');
-    if (!carouselSlide) {
-        console.error('Carousel element not found');
-        return;
-    }
+    // Carousel Setup Function
+    const setupCarousel = (carouselId) => {
+        const carouselSlide = document.getElementById(carouselId);
+        if (!carouselSlide) {
+            console.error(`${carouselId} element not found`);
+            return;
+        }
 
-    const items = Array.from(carouselSlide.children);
-    let currentItemIndex = Math.floor(items.length / 2); // Start with the middle item as active
+        const items = Array.from(carouselSlide.children);
+        let currentItemIndex = Math.floor(items.length / 2); // Start with the middle item as active
 
-    function updateCarousel() {
-        items.forEach((item, index) => {
-            item.classList.add('unfocused');
-            item.classList.remove('active');
-            if (index === currentItemIndex) {
-                item.classList.remove('unfocused');
-                item.classList.add('active');
-            }
-        });
+        function updateCarousel() {
+            items.forEach((item, index) => {
+                item.classList.add('unfocused');
+                item.classList.remove('active');
+                if (index === currentItemIndex) {
+                    item.classList.remove('unfocused');
+                    item.classList.add('active');
+                }
+            });
 
-        const itemWidth = items[0].offsetWidth + 25; // Includes the margin
-        const offset = (carouselSlide.parentElement.offsetWidth / 2) - (itemWidth / 2);
-        carouselSlide.style.transform = `translateX(${offset - currentItemIndex * itemWidth}px)`;
-    }
+            // Calculate item width and offset
+            const itemWidth = items[0].offsetWidth + 25; // Width including margin
+            const offset = (carouselSlide.parentElement.offsetWidth / 2) - (itemWidth / 2); // Centering offset
 
-    function nextItem() {
-        currentItemIndex = (currentItemIndex + 1) % items.length;
-        carouselSlide.appendChild(carouselSlide.firstElementChild);
-        updateCarousel();
-    }
+            // Center the active item
+            const translateX = (currentItemIndex * itemWidth) - offset;
+            carouselSlide.style.transform = `translateX(-${translateX}px)`;
+        }
 
-    function prevItem() {
-        currentItemIndex = (currentItemIndex - 1 + items.length) % items.length;
-        carouselSlide.insertBefore(carouselSlide.lastElementChild, carouselSlide.firstElementChild);
-        updateCarousel();
-    }
+        function nextItem() {
+            currentItemIndex = (currentItemIndex + 1) % items.length; // Increment index
+            // Move the first item to the end
+            carouselSlide.appendChild(carouselSlide.firstElementChild);
+            updateCarousel();
+        }
 
-    window.nextItem = nextItem;
-    window.prevItem = prevItem;
+        function prevItem() {
+            // Move the last item to the front
+            carouselSlide.insertBefore(carouselSlide.lastElementChild, carouselSlide.firstElementChild);
+            currentItemIndex = (currentItemIndex - 1 + items.length) % items.length; // Decrement index
+            updateCarousel();
+        }
 
-    updateCarousel();
+        // Set up event listeners for buttons
+        document.querySelector(`.${carouselId}-arrow.right`).addEventListener('click', nextItem);
+        document.querySelector(`.${carouselId}-arrow.left`).addEventListener('click', prevItem);
 
-    // New carousel code
-    const newCarouselSlide = document.getElementById('new-carousel');
-    if (!newCarouselSlide) {
-        console.error('New carousel element not found');
-        return;
-    }
+        updateCarousel(); // Initial update to set the correct position
+    };
 
-    const newItems = Array.from(newCarouselSlide.children);
-    let newCurrentItemIndex = Math.floor(newItems.length / 2); // Start with the middle item as active
+    // Initialize both carousels
+    setupCarousel('carousel');
+    setupCarousel('new-carousel');
 
-    function updateNewCarousel() {
-        newItems.forEach((item, index) => {
-            item.classList.add('unfocused');
-            item.classList.remove('active');
-            if (index === newCurrentItemIndex) {
-                item.classList.remove('unfocused');
-                item.classList.add('active');
-            }
-        });
+    // Image Swap Function
+    window.swapImages = (thumbnailId) => {
+        let mainImage = document.getElementById('main-image');
+        let thumbnail = document.getElementById(thumbnailId);
 
-        const itemWidth = newItems[0].offsetWidth + 25; // Includes the margin
-        const offset = (newCarouselSlide.parentElement.offsetWidth / 2) - (itemWidth / 2);
-        newCarouselSlide.style.transform = `translateX(${offset - newCurrentItemIndex * itemWidth}px)`;
-    }
+        // Swap the src of the main image and the clicked thumbnail
+        let tempSrc = mainImage.src;
+        mainImage.src = thumbnail.src;
+        thumbnail.src = tempSrc;
 
-    function nextNewItem() {
-        newCurrentItemIndex = (newCurrentItemIndex + 1) % newItems.length;
-        newCarouselSlide.appendChild(newCarouselSlide.firstElementChild);
-        updateNewCarousel();
-    }
+        // Ensure the sizes and aspect ratios are maintained correctly
+        mainImage.style.width = "500px";
+        mainImage.style.height = "auto";
+        mainImage.style.objectFit = "contain";
 
-    function prevNewItem() {
-        newCurrentItemIndex = (newCurrentItemIndex - 1 + newItems.length) % newItems.length;
-        newCarouselSlide.insertBefore(newCarouselSlide.lastElementChild, newCarouselSlide.firstElementChild);
-        updateNewCarousel();
-    }
-
-    document.querySelector('.new-carousel-arrow.right').addEventListener('click', nextNewItem);
-    document.querySelector('.new-carousel-arrow.left').addEventListener('click', prevNewItem);
-
-    window.nextNewItem = nextNewItem;
-    window.prevNewItem = prevNewItem;
-
-    updateNewCarousel();
+        thumbnail.style.maxWidth = "80px";
+        thumbnail.style.maxHeight = "80px";
+        thumbnail.style.objectFit = "contain";
+    };
 });
