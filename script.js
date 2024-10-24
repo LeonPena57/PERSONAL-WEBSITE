@@ -1,3 +1,8 @@
+function toggleMenu() {
+    const navbar = document.querySelector('.navbar ul');
+    navbar.classList.toggle('show');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Scroll Indicator
     const scrollIndicator = document.querySelector('.scroll-indicator');
@@ -40,27 +45,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Calculate item width and offset
             const itemWidth = items[0].offsetWidth + 25; // Width including margin
             const offset = (carouselSlide.parentElement.offsetWidth / 2) - (itemWidth / 2); // Centering offset
 
-            // Center the active item
-            const translateX = (currentItemIndex * itemWidth) - offset;
-            carouselSlide.style.transform = `translateX(-${translateX}px)`;
+            // Center the active item without any movement
+            const translateX = (currentItemIndex * itemWidth) - offset; // Correcting translate calculation
+            carouselSlide.style.transform = `translateX(-${translateX}px)`; // Adjust position
         }
 
         function nextItem() {
-            currentItemIndex = (currentItemIndex + 1) % items.length; // Increment index
-            // Move the first item to the end
+            // Move current item to the end of the list to simulate seamless transition
             carouselSlide.appendChild(carouselSlide.firstElementChild);
-            updateCarousel();
+            currentItemIndex = (currentItemIndex + 1) % items.length; // Increment index
+            updateCarousel(); // Update the carousel
         }
 
         function prevItem() {
-            // Move the last item to the front
+            // Move current item to the start of the list to simulate seamless transition
             carouselSlide.insertBefore(carouselSlide.lastElementChild, carouselSlide.firstElementChild);
             currentItemIndex = (currentItemIndex - 1 + items.length) % items.length; // Decrement index
-            updateCarousel();
+            updateCarousel(); // Update the carousel
         }
 
         // Set up event listeners for buttons

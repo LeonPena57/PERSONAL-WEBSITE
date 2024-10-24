@@ -22,17 +22,29 @@
             <p>This website is currently under active development</p>
         </div>
     </div>    
-    <header>
-        <nav>
+    <header> 
+        <div class="header-container">
+            <button class="burger-menu" onclick="toggleMenu()">☰</button>
+            <a href="index.html" class="logo-container">
+                <img src="./images/LOGOFIXED-small.png" alt="Logo" class="logo mobile-logo">
+            </a>
+        </div>
+        <nav class="navbar">
             <ul>
                 <li><a href="#trust">Home</a></li>
                 <li><a href="#sales">Products</a></li>
-                <li><a href="index.html"><img src="./images/LOGOFIXED.png" alt="Logo" class="logo"></a></li>
+                <li class="logo-item"><img src="./images/LOGOFIXED-large.png" alt="Logo" class="logo desktop-logo"></li>
                 <li><a href="#satisfaction">Designs</a></li>
                 <li><a href="#subscription">Photos</a></li>
             </ul>
         </nav>
-    </header>
+    </header>                                  
+    <script>
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar ul');
+            navbar.classList.toggle('show');
+        }
+        </script>                                                                             
     <main>
         <div class="header-content">
             <h1 class="luckiest-guy-regular slanted-text">WELCOME</h1>
@@ -44,7 +56,7 @@
             </div>
         </div>
         <div class="container">
-            <h1>WHY TRUST ME?</h1>
+            <h1>WHY TRUST US?</h1>
             <div class="boxes-container">
                 <div class="box white-box">
                     <h2>500 SALES ON FIVERR</h2>
@@ -119,40 +131,34 @@
             </div>
         </div>
         <div class="new-carousel-container">
-            <div class="new-carousel-arrow left" onclick="prevNewItem()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50">
-                    <path fill="white" d="m12.707 8.707-1.414-1.414L6.586 12l4.707 4.707 1.414-1.414L10.414 13H16v-2h-5.586l2.293-2.293z"/>
-                </svg>
-            </div>
+                <button class="new-carousel-arrow left" onclick="prevItem()">‹</button>
             <div class="new-carousel-background">
+                    <h1 class="titletext">CLIENTS</h1>
                 <div class="new-carousel-slide" id="new-carousel">
+                    
                     <div class="new-carousel-item">
-                        <img src="./images/LOGO.png" alt="Active Image">
-                        <p class="new-caption">ESPORT GFX</p>
+                        <img src="./images/clients/Hitter.png" alt="PokeHitter">
+                        <p class="new-caption">PokeHitter</p>
                     </div>
                     <div class="new-carousel-item">
-                        <img src="./images/THUMBNAILS-1.png" alt="Overlay Image">
-                        <p class="new-caption">Overlays</p>
+                        <img src="./images/clients/Fate.png" alt="HaveFates">
+                        <p class="new-caption">HaveFates</p>
                     </div>
                     <div class="new-carousel-item">
-                        <img src="./images/THUMBNAILS-2.png" alt="Logo Image">
-                        <p class="new-caption">Logos</p>
+                        <img src="./images/clients/Alantis.png" alt="Alantis">
+                        <p class="new-caption">Alantis</p>
                     </div>
                     <div class="new-carousel-item">
-                        <img src="./images/THUMBNAILS.png" alt="Thumbnail Image">
-                        <p class="new-caption">Thumbnails</p>
+                        <img src="./images/clients/Mystic.png" alt="MysticGamers">
+                        <p class="new-caption">MysticGamers</p>
                     </div>
                     <div class="new-carousel-item">
-                        <img src="./images/OVERLAYS.png" alt="Video Edit Image">
-                        <p class="new-caption">Video Edits</p>
+                        <img src="./images/clients/Sam.png" alt="PokemanSam">
+                        <p class="new-caption">PokemanSam</p>
                     </div>
                 </div>
             </div>
-            <div class="new-carousel-arrow right" onclick="nextNewItem()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" style="transform: scaleX(-1);">
-                    <path fill="white" d="m12.707 8.707-1.414-1.414L6.586 12l4.707 4.707 1.414-1.414L10.414 13H16v-2h-5.586l2.293-2.293z"/>
-                </svg>
-            </div>
+            <button class="new-carousel-arrow right" onclick="prevItem()">›</button>
         </div>                                             
     </main>
     <footer>

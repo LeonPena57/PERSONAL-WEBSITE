@@ -276,8 +276,14 @@ section {
 }
 
 /* ----------- CAROUSEL START ---------- */
+.titletext {
+    text-align: center;
+    font-family: TRUENO;
+}
 
-.carousel-container, .new-carousel-container {
+.carousel-container {
+    padding-top: 105px;
+    padding-bottom: 35px;
     position: relative;
     width: 100%;
     margin: auto;
@@ -285,6 +291,23 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.new-carousel-container {
+    padding-bottom: 35px;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-carousel-container {
+    background-color: rgba(41, 31, 31, 0.75); /* Background color with 75% opacity */
+    border-radius: 10px; /* Rounded corners (optional) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow effect */
 }
 
 .carousel-slide, .new-carousel-slide {
@@ -337,11 +360,11 @@ section {
 }
 
 .carousel-arrow.left, .new-carousel-arrow.left {
-    left: 10px;
+    left: 200px;
 }
 
 .carousel-arrow.right, .new-carousel-arrow.right {
-    right: 10px;
+    right: 200px;
 }
 
 .gallery-container {
@@ -399,8 +422,10 @@ section {
 }
 
 .text-box button {
+    font-family: 'Trueno', serif; /* Apply to all h1 and h2 elements */
+    font-weight: 900; /* Ensure the bold weight is used */
     padding: 10px 20px;
-    background-color: #FF7373;
+    background-color: #ff7373;
     color: white;
     border: none;
     border-radius: 5px;
@@ -408,7 +433,8 @@ section {
 }
 
 .text-box button:hover {
-    background-color: #0056b3;
+    background-color: #ffffff;  
+    color: #ff7373;
 }
 
 @font-face {
@@ -521,7 +547,114 @@ footer {
 }
 
 
-/* ----------------------------------------------------------- */
+/* ------------------------ MEDIA FIX----------------------------------- */
+
+/* ------------------- BURGER MENU ------------ */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+/* Burger menu styling */
+.burger-menu {
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Logo styling */
+.logo {
+    height: 50px; /* Adjust height as needed for desktop */
+}
+
+.mobile-logo {
+    display: none; /* Hide the mobile logo by default */
+}
+
+/* Nav items styling */
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Adjust spacing */
+}
+
+/* Show mobile logo in mobile view */
+@media (max-width: 768px) {
+    .logo-item {
+        display: none;
+        align-items: center; /* Center logo vertically in the nav */
+    }
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .navbar ul.show {
+        display: flex;
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    /* Show mobile logo in mobile view */
+    .mobile-logo {
+        display: block; 
+        height: 40px; /* Adjust height as needed */
+    }
+}
+
+/* PC view adjustments */
+@media (min-width: 769px) {
+    .burger-menu {
+        display: none; /* Hide burger menu in desktop view */
+    }
+
+    .header-container {
+        padding: 10px; /* Adjust padding if necessary */
+        display: none;
+    }
+
+    .navbar ul {
+        display: flex;
+    }
+
+    .logo-item {
+        display: flex;
+        align-items: center; /* Center logo vertically in the nav */
+    }
+
+    .desktop-logo {
+        height: 50px; /* Adjust height for desktop view */
+    }
+
+    .mobile-logo {
+        display: none; /* Hide mobile logo in desktop view */
+    }
+}
+
+
+/* ------------------ END BURGER ----------------- */
+
 @media screen and (min-width: 2560px) {
     .carousel-item {
         width: 200px; /* Adjust size for larger screens */
@@ -536,5 +669,40 @@ footer {
 
     .header-content p {
         font-size: 12em;
+    }
+}
+
+@media screen and (max-width: 390px) {
+
+    .Navigation {
+        
+    }
+
+    .boxes-container {
+        flex-direction: column;
+    }
+
+    .scroll-indicator {
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+    .header-content {
+        padding-top: 125px;
+        padding-bottom: 10px;
+    }
+    .header-content h1 {
+        font-size: 5em;
+        padding-bottom: 0px;
+    }
+
+    .header-content p {
+        font-size: 2em;
+        padding-top: 60px;
+        padding-bottom: 0px;
+    }
+    
+    .container {
+        padding-top: -75px;
     }
 }
