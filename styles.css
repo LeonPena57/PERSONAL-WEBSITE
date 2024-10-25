@@ -239,15 +239,15 @@ body {
     text-align: center;
     background-color: white;
     color: #f44336; /* Light red text */
-    border: 2px solid #f44336;
+    border: 5px solid #f44336;
 }
 
 /* Second Long Box - Light Red with Black Text */
 .red-box {
     text-align: center;
     background-color: #f44336;
-    color: black;
-    border: 2px solid white;
+    color: rgb(255, 255, 255);
+    border: 5px solid white;
 }
 
 /* Stacked Smaller Boxes for Images */
@@ -283,6 +283,7 @@ body {
 }
 
 .red-small {
+    fill: white ;
     background-color: #f44336;
     border-color: black;
 }
