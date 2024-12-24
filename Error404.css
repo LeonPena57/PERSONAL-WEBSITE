@@ -1,0 +1,45 @@
+body {
+    background-color: #000000;
+}
+
+* {
+font-family: 'TRUENO BLACK', sans-serif;
+}
+
+.Text {
+    text-decoration: none;
+}
+
+.ErrorTxt {
+    margin-bottom: 0; /* Remove bottom margin */
+    padding-top: 8%; /* Reduce padding */
+    text-align: center;
+    font-size: 5rem;
+    color: blanchedalmond;
+}
+
+.Number {
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 15rem;
+    color: aqua;
+}
+
+.NotYet {
+    margin-bottom: 0; /* Remove bottom margin */
+    margin-top: 0;
+    text-align: center;
+    font-size: 2rem;
+    color: blanchedalmond;
+}
+
+/* HIDDDEN CIRCLE 
+.circle {
+    border: 255px solid red;
+    height: 100px;
+    width: 100px;
+}
+
+*/
+

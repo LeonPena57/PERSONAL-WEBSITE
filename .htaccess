@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule ^home$ /index.html [L]
+RewriteRule ^photos$ /photos.html [L]
+RewriteRule ^designs$ /designs.html [L]
+RewriteRule ^products$ /products.html [L]
+
+DirectoryIndex index.html

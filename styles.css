@@ -1,17 +1,167 @@
-body, html {
+
+ /* RAIN */
+ body, html {
+    height: 100%;
     margin: 0;
-    padding: 0;
+    overflow: auto; /* Allow scrolling */
+    background-color: #202020; /* Background color for visibility */
+}
+
+.rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    font-family: "TRUENO", sans-serif;
-    background-image: url('./images/BG.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    color: white;
-    overflow-x: hidden;
+    pointer-events: none; /* Allow interaction with underlying content */
+    z-index: 0; /* High z-index to be above everything */
 }
+
+.rain {
+    position: absolute;
+    bottom: 100%;
+    width: 1px; /* Thin line */
+    height: 50px; /* Base height, will vary */
+    background-color: #cecccc; /* Rain color */
+    opacity: 0.5; /* Lower opacity */
+    animation: fall linear infinite, fade linear infinite;
+    animation-delay: 0s; /* Initial delay */
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh); /* Full viewport height */
+    }
+}
+
+@keyframes fade {
+    0%, 90% {
+        opacity: 0.5; /* Partially visible initially */
+    }
+    100% {
+        opacity: 0; /* Fully disappear */
+    }
+}
+
+
+ /* RAIN END */
+
+ /* NEON SIGN */
+
+ @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Luckiest+Guy&display=swap');
+
+ .neon-text {
+     font-family: 'Kanit', sans-serif;
+     font-size: 3em; /* Adjust font size for desktop */
+     color: #0ff;
+     text-align: center;
+     text-shadow: 
+         0 0 5px #0ff,
+         0 0 10px #0ff,
+         0 0 15px #0ff,
+         0 0 20px #0ff,
+         0 0 25px #0ff,
+         0 0 30px #0ff,
+         0 0 35px #0ff,
+         0 0 40px #0ff;
+     -webkit-text-stroke: 4.5px white; /* Thicker white outline */
+     opacity: 1; /* Make the text fully visible */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: auto;
+     padding: 0 20px;
+ }
+ 
+ @keyframes glow {
+     0%, 100% {
+         opacity: 1; /* Fully visible */
+     }
+     10% {
+         opacity: 0.25;
+     }
+     20% {
+         opacity: 0.5;
+     }
+     30% {
+         opacity: 0.1;
+     }
+     40% {
+         opacity: 0.3;
+     }
+     50% {
+         opacity: 1; /* Return to fully visible */
+     }
+ }
+ 
+ .letter {
+     animation: none; /* Start with no animation */
+     display: inline-block;
+     margin-right: -10px; /* Keeps letters close together */
+     direction: ltr; /* Ensuring left-to-right */
+     transform: none; /* Ensure no flipping is applied */
+ }
+ 
+ .dimmed {
+     animation: glow 1s infinite;
+ }
+ 
+ /* Styling for header content */
+ .header-content {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     min-height: 100vh;
+     text-align: center;
+ }
+ 
+ .header-content h1 {
+     font-family: 'Luckiest Guy', cursive;
+     font-size: 18rem; /* Original size for large screens */
+     transform: rotate(-5deg); /* Tilt the text slightly */
+     margin: -10px 0 -95px;
+     direction: ltr; /* Ensure the text direction is left-to-right */
+ }
+ 
+ .header-content p {
+     font-family: 'Luckiest Guy', cursive;
+     font-size: 5rem; /* Original size for large screens */
+     transform: rotate(-5deg); /* Tilt the text slightly */
+     margin: 15px 0 25px;
+ }
+ 
+ /* Responsive design for smaller screens */
+ @media only screen and (max-width: 600px) {
+     .neon-text {
+         font-size: 1.5em; /* Smaller font size for mobile */
+         text-shadow: 
+             0 0 3px #0ff,
+             0 0 5px #0ff,
+             0 0 7px #0ff,
+             0 0 10px #0ff,
+             0 0 15px #0ff;
+         -webkit-text-stroke: 0.5px white; /* Adjusted outline for mobile */
+     }
+ 
+     .letter {
+         margin-right: -5px; /* Adjust spacing for mobile */
+     }
+ 
+     .header-content h1 {
+         font-size: 5rem; /* Smaller size for mobile */
+         margin: -5px 0 -45px;
+     }
+ 
+     .header-content p {
+         font-size: 2rem; /* Smaller size for mobile */
+         margin: 10px 0 15px;
+     }
+ }
+ 
+ 
+/* END NEON *
+
 /* --------------WORK IN PROGRESS ----------------*/
 .marquee-container {
     width: 100%;
@@ -106,6 +256,15 @@ nav ul li a {
 /* ----------------------- END NAVIGATION ------------------------ */
 
 .titletext {
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    font-family: TRUENO;
+}
+
+.titletext1 {
+    color: white;
+    padding-top: 105px;
     font-size: 36px;
     text-align: center;
     font-family: TRUENO;
@@ -153,28 +312,6 @@ nav ul li a {
     top: 2px;
 }
 
-.header-content h1 {
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 18em;
-    transform: rotate(-5deg); /* Tilt the text slightly */
-    margin: -10px 0 -95px;
-}
-
-.header-content p {
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 5em;
-    transform: rotate(-5deg); /* Tilt the text slightly */
-    margin: 15px 0 25px;
-}
-
-.scroll-indicator {
-    font-size: 2em;
-    animation: bounce 2s infinite;
-    position: relative;
-    margin: 20px;
-}
-
-
 @import url('https://fonts.googleapis.com/css2?family=TRUENO+BLACK&display=swap');
 
 * {
@@ -191,18 +328,17 @@ body {
 .container {
     display: flex; /* Use flexbox to control layout more directly */
     align-items: center; /* Center align all items vertically */
+    justify-content: center; /* Center align all items horizontally */
     max-width: 1000px;
-    margin: 20px auto;
+    margin: -10px auto;
     gap: 10px; /* Set the gap between the long and small boxes */
 }
 
 .long-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly; /* Evenly distribute space above and below the text */
     align-items: center;
-    padding: 10px;
-    text-align: center;
     height: 150px; /* Height for the long boxes */
     width: 400px; /* Width for the long boxes */
     border-radius: 5px;
@@ -210,24 +346,26 @@ body {
 
 /* Define each line's size and positioning */
 .box-line {
-    margin: 5px 0;
+    margin: 0; /* Remove margin to eliminate extra space */
 }
 
 .top-text {
+    padding-top: 3px;
     text-align: center;
     font-family: 'Trueno', sans-serif;
     font-weight: 900; /* Ensure the bold weight is used */
-    font-size: 36px; /* Top text size */
+    font-size: 42px; /* Top text size */
 }
 
 .middle-text {
     text-align: center;
     font-family: 'Trueno', sans-serif;
     font-weight: 900; /* Ensure the bold weight is used */
-    font-size: 36px; /* Middle text size */
+    font-size: 52px; /* Middle text size */
 }
 
 .bottom-text {
+    padding-bottom: 25px;
     text-align: center;
     font-family: 'Trueno', sans-serif;
     font-weight: 900; /* Ensure the bold weight is used */
@@ -238,27 +376,29 @@ body {
 .white-box {
     text-align: center;
     background-color: white;
-    color: #f44336; /* Light red text */
-    border: 5px solid #f44336;
+    color: #ff7373; /* Light red text */
+    border: 0px solid #ff7373;
 }
 
 /* Second Long Box - Light Red with Black Text */
 .red-box {
     text-align: center;
-    background-color: #f44336;
+    background-color: #ff7373;
     color: rgb(255, 255, 255);
-    border: 5px solid white;
+    border: 0px solid white;
 }
 
 /* Stacked Smaller Boxes for Images */
 .small-boxes-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
     height: 150px; /* Match height of the long boxes */
     gap: 10px; /* Set 10px gap between the small boxes */
 }
 
+/* Small Box Styling */
 .small-box {
     display: flex;
     justify-content: center;
@@ -268,13 +408,15 @@ body {
     width: 120px; /* Width for the small boxes */
     background-color: white; /* Default white background */
     border-radius: 5px;
+    margin: auto; /* Center the small boxes horizontally */
 }
 
 /* Image Styling */
 .small-box img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 45%;
+    max-height: 45%;
     object-fit: contain;
+    margin: auto; /* Center the image within the box */
 }
 
 /* Adjusting the color for small boxes */
@@ -283,13 +425,301 @@ body {
 }
 
 .red-small {
-    fill: white ;
-    background-color: #f44336;
+    background-color: #ff7373;
     border-color: black;
+}
+
+.red-small img {
+    max-width: 55%;
+    max-height: 55%;
+    object-fit: contain;
+    margin: auto;
 }
 
   
 /* ---------------------- HEADER END ------------------------ */
+
+/* ------------ SCROLL INDICATOR ------------------ */
+
+.scroll-indicator {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    position: relative;
+    margin: 20px;
+    cursor: pointer; /* Make it clear that it's clickable */
+}   
+.scroll-indicator .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-indicator .triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid white;
+}
+
+/* ------------ END SCROLL INDICATOR ------------------ */
+
+/* ------------- R E V I E W S --------------- */
+
+input[type="text"],
+input[type="url"],
+textarea {
+    width: 100%; /* Full width of the container */
+    padding: 10px; /* Padding for the input boxes */
+    border: 1px solid #ff7373; /* Light red border */
+    border-radius: 5px; /* Rounded edges */
+    font-size: 16px; /* Font size */
+    color: #333; /* Dark text color */
+    background-color: #fff; /* White background */
+    margin-bottom: 15px; /* Space between input boxes */
+    transition: border 0.3s; /* Transition for border color on focus */
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    border-color: #ff7373; /* Darker red border on focus */
+    outline: none; /* Remove default outline */
+}
+
+textarea {
+    height: 100px; /* Set a fixed height for the textarea */
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* -------------- LEFT REVIEWS ---------- */
+.reviews-section {
+    width: 900px; /* Match chat box width */
+    margin: 20px auto;
+    border: none; /* No border around container */
+}
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Adjust height to fit content */
+}
+
+.review-box {
+    margin-bottom: 10px;
+    padding: 10px; /* Ensure padding around elements */
+    background-color: transparent; /* Fully transparent background */
+    border: 1px solid white; /* White outline */
+    border-radius: 3px;
+    color: white; /* White text */
+    width: fit-content; /* Automatically adjust width to fit content */
+}
+
+.review-content {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    padding: 10px;
+    background-color: transparent; /* Fully transparent background */
+}
+
+.reviewer-image img {
+    width: 30px; /* Adjust width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.review-text {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    padding: 10px;
+    border-radius: 3px;
+    background-color: transparent; /* Fully transparent background */
+    color: white; /* White text */
+    flex: 1; /* Ensure text takes up remaining space */
+}
+
+.reviewer-name {
+    color: #FF6F61; /* Nice red color for the names */
+    font-weight: bold; /* Bold font for names */
+    margin-right: 5px; /* Space between name and stars */
+    font-size: 1em; /* Reduce font size for better fit */
+}
+
+.stars {
+    color: #FF6F61; /* Star color */
+    font-size: 1em; /* Adjust size as needed */
+    margin-left: 5px; /* Space between name and stars */
+    align-self: flex-start; /* Align stars with the name */
+    margin-top: -2px; /* Adjust vertical position */
+}
+
+.review-message {
+    color: white; /* White text */
+    padding: 10px; /* Ensure padding around text */
+    margin-top: -25px; /* Space above the review text */
+    background-color: transparent; /* Fully transparent background */
+}
+
+.social-links {
+    margin-bottom: -25px;
+    display: flex;
+    align-items: center; /* Center icons vertically */
+    margin-top: 5px; /* Space above the social links */
+    background-color: transparent; /* Fully transparent background */
+    justify-content: flex-start; /* Align to the bottom left */
+}
+
+.social-icon {
+    margin-left: 5px; /* Space between icons */
+}
+
+.social-icon img {
+    width: 20px; /* Reduced icon size */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 20px; /* Ensure icon does not exceed max height */
+}
+
+.additional-text {
+    text-align: right; /* Align the additional text to the bottom right */
+    color: white; /* White text */
+    font-size: 0.8em; /* Adjust font size as needed */
+    margin-top: 0; /* No space above the additional text */
+    background-color: transparent; /* Fully transparent background */
+}
+
+.additional-text a {
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+}
+
+.additional-text a:hover {
+    color: #1DBF73; /* Change color on hover */
+}
+
+.reviews-section h2 {
+    text-align: center; /* Center the heading */
+    font-size: 2em; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Space below the heading */
+    background-color: transparent; /* Fully transparent background */
+}
+
+.review-content p {
+    color: white; /* Text color for review content */
+    margin: 0; /* Remove margin for better control over height */
+}
+
+.malteseboy-review {
+    padding: 10px; /* Adjust padding for this specific review box */
+    margin-bottom: 10px; /* Space below the review box */
+    width: fit-content; /* Adjust width to fit content */
+}
+
+.malteseboy-review .review-message {
+    margin: 5px 0; /* Reduce margin for the message */
+}
+
+.malteseboy-review .social-links {
+    margin-top: 0; /* Remove margin above social links */
+    justify-content: flex-start; /* Align to the bottom left */
+}
+
+.malteseboy-review .additional-text {
+    margin-top: 5px; /* Space above the additional text */
+    text-align: right; /* Align to the bottom right */
+}
+
+
+/* --------- E ND REVIEEW ----------------- */
+
+/* LEAVE A REVIEW */
+
+.reviews-form {
+    margin: 20px auto; /* Center the container and add some vertical margin */
+    width: 90%; /* Full width of the container */
+    max-width: 800px; /* Maximum width for the container */
+    display: flex; /* Enable flexbox for centering */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.reviews-form h2 {
+    padding-top: 40px;
+}
+
+.review-inputs {
+    display: flex;
+    flex-direction: column;
+    color: white; /* Text color inside the box */
+}
+
+.name-rating-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between name input and stars */
+    margin-bottom: 20px; /* Increased space below this container */
+}
+
+.name-container {
+    flex: 1; /* Allows the name input to take available space */
+    margin-right: 20px; /* Increased space between name and stars */
+    margin-bottom: -25px;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    margin-bottom: -20px;
+    margin-left: 20px; /* Space between name and stars */
+    cursor: pointer;
+}
+
+.star {
+    font-size: 40px; /* Adjust the size of the stars */
+    color: lightgray; /* Color for unselected stars */
+}
+
+.star.selected {
+    color: #fce694; /* Color for selected stars */
+}
+
+.thoughts-container textarea {
+    width: 100%; /* Full width of the container */
+    height: 120px; /* Increased height for the thoughts box */
+    border: 1px solid #ccc; /* Add a border to the textarea */
+    border-radius: 5px; /* Rounded edges */
+    padding: 0px; /* Padding inside the textarea */
+    resize: none; /* Prevent resizing of the textarea */
+}
+
+.submit-button {
+    background-color: #ff7373; /* Red background for submit button */
+    color: white; /* White text for submit button */
+    border: none; /* Remove the black border */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded edges for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, color 0.3s, border 0.3s; /* Transition for hover effect */
+    margin-top: 10px; /* Space above the button */
+}
+
+.submit-button:hover {
+    background-color: white; /* White background on hover */
+    color: #ff7373; /* Red text on hover */
+    border: 3px solid #ff7373; /* Red border on hover */
+}
+
+
+/* END LEAVE */
+
+
 
 /* ------------------------ NEW PRODUCT ------------------------- */
 @keyframes bounce {
@@ -305,6 +735,7 @@ body {
 }
 
 .container, .New-Products {
+    font-size: 36px;
     text-align: center;
     font-family: 'Trueno', sans-serif;
 }
@@ -399,8 +830,7 @@ section {
 
 /* ----------- CAROUSEL START ---------- */
 
-.carousel-container {
-    padding-top: 105px;
+.carousel-container { 
     padding-bottom: 35px;
     position: relative;
     width: 100%;
@@ -411,6 +841,7 @@ section {
     align-items: center;
 }
 
+/* New Carousel Container with Background Box Effect */
 .new-carousel-container {
     padding-bottom: 35px;
     position: relative;
@@ -420,54 +851,59 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(41, 31, 31, .85); /* Background color with 75% opacity */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
 }
 
-.new-carousel-container {
-    background-color: rgba(41, 31, 31, 0.75); /* Background color with 75% opacity */
-    border-radius: 10px; /* Rounded corners (optional) */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow effect */
-}
-
+/* Carousel Slides */
 .carousel-slide, .new-carousel-slide {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    justify-content: center; /* Center items within the slide */
-    flex-direction: row; /* Ensure horizontal layout */
+    justify-content: center;
+    flex-direction: row; /* Horizontal layout */
 }
 
+/* Carousel Items */
 .carousel-item, .new-carousel-item {
     flex: 0 0 auto;
-    width: 150px; /* Adjust size of images */
-    margin: 0 12.5px; /* 25px total space between items */
+    width: 150px;
+    margin: 0 12.5px; /* Total 25px space between items */
     transition: transform 0.5s, opacity 0.5s;
     text-align: center;
-    opacity: 0.5; /* Default for unfocused items */
+    opacity: 0.5; /* Default unfocused */
 }
 
+/* Image Styling */
 .carousel-item img, .new-carousel-item img {
     width: 100%;
     height: auto;
-    display: block; /* Ensure it's treated as a block-level element */
-    margin-top: 50px; /* Adjust margin to prevent cut-off at the top */
+    display: block;
+    margin-top: 50px; /* Prevents cut-off at the top */
 }
 
+/* Carousel Text Styling */
 .carousel-item p, .new-carousel-item p {
+    color: white;
     margin-top: 10px;
 }
 
+/* Active Item Styling */
 .carousel-item.active, .new-carousel-item.active {
     opacity: 1;
     animation: bounceIn 0.5s forwards;
-    z-index: 2; /* Ensure it's on top */
+    z-index: 2; /* Bring to front */
 }
 
+/* Unfocused Item Styling */
 .carousel-item.unfocused, .new-carousel-item.unfocused {
     animation: bounceOut 0.5s forwards;
 }
 
+/* Arrow Styling */
 .carousel-arrow, .new-carousel-arrow {
     position: absolute;
-    top: 58%;
+    top: 45%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
@@ -477,21 +913,18 @@ section {
     z-index: 1;
 }
 
-.new-carousel-arrow.left {
-    left: 550px;
+/* Dynamic Arrow Positioning */
+.carousel-arrow.left, .new-carousel-arrow.left {
+    left: 5%; /* Adjust based on container width */
 }
 
-.new-carousel-arrow.right {
-    right: 550px;
+.carousel-arrow.right, .new-carousel-arrow.right {
+    right: 5%; /* Adjust based on container width */
 }
 
-.carousel-arrow.left {
-    left: 550px;
-}
 
-.carousel-arrow.right {
-    right: 550px;
-}
+
+/* ------------------- END CAROUSEL ---------------- */
 
 .gallery-container {
     display: flex;
@@ -515,14 +948,19 @@ section {
 
 .thumbnail-container {
     display: flex;
-    justify-content: flex-start; /* Align thumbnails to the left */
+    align-items: center; /* Center align the thumbnails and arrows */
     width: 750px; /* Ensure it matches the big image */
     margin-top: 10px;
 }
 
+.thumbnails {
+    display: flex; /* Flex container for thumbnails */
+    align-items: center; /* Center align thumbnails */
+}
+
 .thumbnail-container img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 100px; /* Adjusted size for thumbnails */
+    max-height: 100px; /* Maintain aspect ratio */
     margin: 0 10px;
     cursor: pointer;
     border: 2px solid transparent;
@@ -530,21 +968,55 @@ section {
 }
 
 .thumbnail-container img:hover {
-    border: 2px solid #000;
+    border: 2px solid #ff7373; /* Highlight active thumbnail */
+}
+
+.overlay-arrows {
+    color: rgb(255, 255, 255); /* White color for the arrows */
+    border: none; /* Remove border */
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+    cursor: pointer;
+    font-size: 40px; /* Increase arrow size */
+    padding: 10px; /* Padding for better click area */
+    transition: color 0.3s; /* Transition effect */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+}
+
+#prev-popup,
+#next-popup {
+    position: absolute;
+    top: 50%; /* Center the arrows vertically */
+    transform: translateY(-50%); /* Adjust for centering */
+    padding: 10px; /* Ensure enough clickable area */
+}
+
+#prev-popup {
+    left: 20px; /* Position left arrow */
+}
+
+#next-popup {
+    right: 20px; /* Position right arrow */
+}
+
+
+.overlay-arrows:hover {
+    color: #ff7373; /* Change arrow color on hover */
 }
 
 .text-box {
-    background: #2222226f;
+    background: #2222222c;
     padding: 20px;
     border-radius: 8px;
     border: 2px solid white;
     text-align: center;
     width: 500px; /* Match the width of the main image */
-    height: 580px; /* Adjust height to match the combined height of the main image and thumbnails more closely */
+    height: auto; /* Adjust height */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-.text-box p {
+.text-box p, li, h1 {
+    color: white;
     font-size: 1.2em;
     margin-bottom: 20px;
 }
@@ -564,6 +1036,48 @@ section {
     background-color: #ffffff;  
     color: #ff7373;
 }
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 50%; /* Center the popup */
+    top: 50%; /* Center the popup */
+    transform: translate(-50%, -50%); /* Offset the popup by half its width and height */
+    background-color: rgba(0, 0, 0, 0.8); /* Background color with transparency */
+    padding: 20px; /* Padding around the image */
+    backdrop-filter: blur(5px); /* Add blur effect to the background */
+    overflow: hidden; /* Prevent overflow */
+}
+
+
+.popup-content {
+    width: 1440px; /* Set to 2x larger than the original size (720px) */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Block element */
+    margin: auto; /* Center the image */
+}
+
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white; /* Close button color */
+    font-size: 40px; /* Increase size */
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3); /* Black background with transparency */
+    padding: 5px 10px; /* Padding around the close button */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.close:hover {
+    color: #ff7373; /* Change color on hover */
+}
+
+
 
 @font-face {
     font-family: 'Trueno';
@@ -618,79 +1132,96 @@ h1 {
     }
 }
 
+/* Footer Styles */
+
 footer {
     border-radius: 20px;
     background-color: #1a1a1a;
     color: #fff;
     padding: 35px 0;
+    margin-top: 35px;
     text-align: center;
+    font-size: 14px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
 }
 
-.footer-content {
+#footer-placeholder .footer-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.logos {
+#footer-placeholder .logos {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.logos img {
+#footer-placeholder .logos img {
     margin: 0 10px;
 }
 
-.footer-columns {
+#footer-placeholder .footer-columns {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
 }
 
-.footer-columns li {
-    color: inherit;
-    text-decoration: none;
+#footer-placeholder .footer-columns li {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Ensure no underline on list items */
+    list-style: none; /* Remove bullet points */
+    font-size: 14px; /* Set font size for all list items */
 }
 
-.FooterLogo {
+#footer-placeholder .FooterLogo {
     height: 30px;
 }
 
-.column {
+#footer-placeholder .footer-columns .column {
     flex: 1;
     margin: 0 10px;
 }
 
-.column h3 {
+#footer-placeholder .footer-columns .column h3 {
     margin-bottom: 10px;
+    font-size: 14px; /* Set header font size to match links */
 }
 
-.column ul {
-    list-style: none;
+#footer-placeholder .footer-columns .column ul {
+    list-style: none; /* Ensure no bullet points in the list */
     padding: 0;
 }
 
-.column ul li {
+#footer-placeholder .footer-columns .column ul li {
     margin-bottom: 5px;
 }
 
-.column ul li a {
+#footer-placeholder .footer-columns .column ul li a {
     color: inherit; /* Inherit color from parent */
     text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Font size for links */
 }
 
-.column ul li a:hover,
-.column ul li a:focus {
+#footer-placeholder .footer-columns .column ul li a:hover,
+#footer-placeholder .footer-columns .column ul li a:focus {
     color: #ff7373; /* Change to light red on hover and focus */
     text-decoration: none; /* No underline on hover and focus */
 }
 
-.footer-bottom {
+#footer-placeholder .footer-bottom {
     border-top: 1px solid #333;
     padding-top: 10px;
+    font-size: 14px; /* Font size for footer bottom text */
 }
 
+/* Additional styles to control outlines */
+#footer-placeholder footer * {
+    outline: none; /* Remove outlines from footer elements */
+    border: none; /* Remove borders from footer elements */
+}
 
 
 /* ------------------------ MEDIA FIX----------------------------------- */
@@ -702,7 +1233,6 @@ footer {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    background-color: #333;
     color: white;
 }
 
@@ -737,20 +1267,27 @@ footer {
     margin: 0 15px; /* Adjust spacing */
 }
 
+.navbar ul li a.active {
+    font-weight: 900; /* Bolder font weight for the active page */
+}
+
 /* Show mobile logo in mobile view */
 @media (max-width: 768px) {
+    
     .logo-item {
         display: none;
         align-items: center; /* Center logo vertically in the nav */
     }
+
     .navbar ul {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
         left: 0;
-        background-color: #333;
+        background-color: #262626b0;
         width: 100%;
+        height: auto;
         z-index: 1000;
     }
 
@@ -759,7 +1296,18 @@ footer {
     }
 
     .navbar ul li {
-        margin: 10px 0;
+        margin: 25px 0;
+    }
+
+    /* Active link styles in the burger menu */
+    .navbar ul.show li a.active {
+        color: #ffffff; /* Text color for active link */
+        background-color: #ff0000; /* Red background for active link */
+        padding: 10px 15px; /* Padding for better visibility */
+        border-radius: 5px; /* Rounds the edges of the background */
+        display: block; /* Ensures the link fills the li */
+        font-family: 'TRUENO BLACK', sans-serif; /* Apply TRUENO BLACK font */
+        font-weight: 900; /* Use a heavier font weight if necessary */
     }
 
     /* Show mobile logo in mobile view */
@@ -811,16 +1359,6 @@ footer {
     }
 }
 
-@media screen and (min-width: 2560px) {
-    .header-content h1 {
-        font-size: 55em;
-    }
-
-    .header-content p {
-        font-size: 12em;
-    }
-}
-
 /* ------------------ END NORMAL PC ------------ */
 
 
@@ -828,9 +1366,7 @@ footer {
 
 @media screen and (max-width: 390px) {
 
-    .Navigation {
-        
-    }
+    
 
     .boxes-container {
         flex-direction: column;
@@ -840,21 +1376,6 @@ footer {
         padding-top: 30px;
         padding-bottom: 20px;
     }
-
-    .header-content {
-        padding-top: 125px;
-        padding-bottom: 10px;
-    }
-    .header-content h1 {
-        font-size: 5em;
-        padding-bottom: 0px;
-    }
-
-    .header-content p {
-        font-size: 2em;
-        padding-top: 60px;
-        padding-bottom: 0px;
-    }
     
     .container {
         padding-top: -75px;
@@ -862,3 +1383,60 @@ footer {
 }
 
 /* ------------------ END MOBILE ------------ */
+
+#chat-box { display: none; }
+
+.chat-container {
+    width: 900px; /* Longer width */
+    margin: 20px auto;
+    border: none; /* No border around container */
+}
+
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Reduced height */
+}
+
+.messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    color: white; /* White text */
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: transparent; /* Invisible background */
+    border: 1px solid #ddd; /* Outline */
+    border-radius: 3px;
+    color: white; /* White text */
+}
+
+.input-box {
+    display: flex;
+    padding: 10px;
+    margin-top: 10px; /* Add margin to disconnect outline */
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: none;
+    background-color: transparent; /* Invisible background */
+    color: white; /* White text */
+}
+
+button {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: transparent; /* Invisible background */
+    color: white; /* White text */
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+

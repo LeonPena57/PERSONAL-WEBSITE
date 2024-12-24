@@ -1,0 +1,339 @@
+/* --------- PHOTO GALLERY -------- */
+
+body {
+    font-family: 'TRUENO BLACK', sans-serif;
+}
+
+/* Reset styles for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; /* Remove outlines */
+}
+
+/* Gallery container setup */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 4px;
+    margin-top: 155px; /* Original margin */
+    margin-bottom: 5px; /* Add bottom margin if needed */
+}
+
+.column {
+    flex: 1 1 22%;
+    max-width: 22%;
+    margin: 0 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid white; /* White outline for category boxes */
+}
+
+.column img {
+    width: 100%;
+    height: auto;
+    filter: blur(3px);
+}
+
+.overlay-text {
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+    -webkit-text-stroke: 1px #291F1F;
+    position: absolute; /* Overlay on top of the image */
+    bottom: 75px; /* Position near the bottom */
+    left: 10%; /* Center horizontally */
+    transform: translateX(-50%); /* Shift back to the left by half its width */
+    color: #fff; /* White text color */
+    padding: 2px 4px; /* Reduced padding */
+    border-radius: 5px; /* Slightly rounded corners */
+    line-height: 1; /* Line height set to 1 for less vertical space */
+    text-align: center; /* Center the text */
+}
+
+/* Optional: Remove or adjust this class if needed */
+.column .overlay-text {
+    font-size: 25px; /* Keep consistent with the new size */
+    top: auto; /* Avoid overriding the bottom position */
+    transform: none; /* Remove centering transform */
+}
+
+.category-box {
+    position: relative; /* Allows the overlay to position itself relative to the box */
+}
+
+/* Add margin to the category images container */
+.category-images {
+    display: none;
+    margin-top: 20px; /* Increase this value for more space */
+}
+
+/* Popup overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+/* Popup content */
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center elements horizontally */
+    position: relative; /* Allow absolute positioning of close button */
+}
+
+.small-images-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the thumbnails */
+    margin-top: 10px; /* Optional: space between main image and thumbnails */
+}
+
+.small-images-container img {
+    margin: 0 5px; /* Space between thumbnails */
+    max-width: 60px; /* Optional: set a max width for thumbnails */
+    cursor: pointer; /* Show pointer cursor for thumbnails */
+}
+
+/* Close button styling */
+.popup-content .close-btn {
+    position: absolute;
+    top: 5px; /* Adjust to overlap the top */
+    right: 150px; /* Move further to the left */
+    background-color: rgba(97, 97, 97, 0.7);
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main image in popup */
+.popup-content img.active {
+    width: 80%;
+    height: auto;
+    user-drag: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Small images in popup */
+.popup-content .small-images-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin-top: 10px;
+}
+
+.popup-content .thumbnail {
+    width: calc(16 / 9 * 40px);
+    height: 40px;
+    object-fit: cover;
+    margin: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Active thumbnail with white border */
+.popup-content .thumbnail.active {
+    border: 2px solid white; /* White border for active thumbnail */
+}
+
+/* Left and Right Arrow Styling */
+.popup-content .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popup-content .arrow.left {
+    left: 10px;
+}
+
+.popup-content .arrow.right {
+    right: 10px;
+}
+
+/* ---------- TITLES  ---------- */
+.title {
+    padding-top: 25px;
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    font-family: TRUENO;
+}
+
+/* ------- END TITLES --------------- */
+
+/* ------ END PHOTO GALLERY ------------ */
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden; /* Prevents overflow of images */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition for sliding */
+}
+
+.carousel-item {
+    padding-top: 40px; /* Keeps the carousel centered vertically */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    min-width: 100%;
+    box-sizing: border-box;
+    opacity: 0; /* Start with items hidden */
+    transition: opacity 0.5s ease; /* Smooth opacity transition */
+}
+
+.carousel-item.active {
+    opacity: 1; /* Only active item is fully visible */
+}
+
+/* Layouts */
+.layout-top-bottom {
+    flex-direction: column; /* Stack items vertically */
+}
+
+.layout-top-bottom .item1,
+.layout-top-bottom .item2 {
+    width: 100%;
+    max-height: 600px; /* Adjust as needed */
+    margin: 0; /* Ensure no extra margin */
+    padding: 0; /* Remove padding */
+}
+
+.layout-top-bottom .item2 {
+    margin-top: -35px; /* Negative margin to reduce gap between items */
+}
+
+.layout-side-by-side {
+    flex-direction: row; /* Align items side by side */
+}
+
+.layout-side-by-side .item3,
+.layout-side-by-side .item4 {
+    width: calc(50% - 10px); /* Fit side by side */
+    margin: 5px; /* Space between items */
+}
+
+.layout-single .item5 {
+    width: 100%; /* Full width for single items */
+    max-height: 600px; /* Adjust as needed */
+    margin: 5px;
+}
+
+/* Carousel arrow styles */
+.carousel-arrow {
+    position: absolute;
+    top: 50%; /* Center arrows vertically */
+    transform: translateY(-50%); /* Correct vertical alignment */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border: none; /* No border */
+    color: white; /* White text color */
+    font-size: 24px; /* Font size */
+    padding: 10px; /* Padding around text */
+    cursor: pointer; /* Pointer on hover */
+    z-index: 10; /* Ensure arrows are on top */
+}
+
+.carousel-arrow.left {
+    left: 10px; /* Position left arrow */
+}
+
+.carousel-arrow.right {
+    right: 10px; /* Position right arrow */
+}
+
+/* Photo grid styles */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 5px; /* Gap between grid items */
+    justify-content: center; /* Center grid items */
+    align-items: center; /* Align items in the center */
+    padding: 20px;
+    max-width: 1200px; /* Max width for the grid */
+    margin: 0 auto; /* Center the grid */
+    background-color: #fff; /* White background */
+}
+
+.photo-piece {
+    position: relative; /* Position for overlapping effects */
+    overflow: hidden; /* Prevent overflow of images */
+}
+
+.photo-piece img {
+    display: block;
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover entire area */
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.photo-piece:hover img {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Define how specific items span rows or columns */
+.item1 {
+    grid-column: span 3; /* Span across 3 columns */
+}
+
+.item2 {
+    grid-column: span 3; /* Span across 3 columns */
+}
+
+.item3 {
+    grid-column: span 1; /* Span across 1 column */
+}
+
+.item4 {
+    grid-column: span 2; /* Span across 2 columns */
+}
+
+/* Adjust for responsive design */
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(1, 1fr); /* Single column layout on small screens */
+    }
+    .photo-piece {
+        grid-column: span 1; /* Ensure all items span 1 column on small screens */
+        grid-row: span 1; /* Ensure all items span 1 row on small screens */
+    }
+}
+
+/* Footer styles (make sure to add this) */
+footer {
+    background-color: #1a1a1a; /* Set your footer background color */
+    padding: 20px; /* Add some padding */
+    color: white; /* Footer text color */
+    text-align: center; /* Center footer text */
+    border: none; /* Remove white outline */
+    position: relative; /* Optional: relative positioning */
+    z-index: 5; /* Ensure it stays above other elements */
+}

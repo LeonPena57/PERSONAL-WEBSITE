@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: black;
+}
+
+#PTitle {
+    margin-top: 100px;
+    margin-bottom: 0px;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+
+#smallTEXT {
+    color: #ff7373;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10;
+}
+
+#content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.photo-grid {
+    display: grid;
+    margin-top: 0px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px; /* Space between images */
+    padding: 20px; /* Padding on the sides */
+    box-sizing: border-box;
+    max-width: calc(100vw - 40px); /* Ensure grid fits within the browser with padding */
+}
+
+.photo-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.photo-wrapper img {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 10px; /* Slight rounding for aesthetic */
+}
+
+footer {
+    border-radius: 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 35px 0;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+#footer-placeholder .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#footer-placeholder .logos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#footer-placeholder .logos img {
+    margin: 0 10px;
+}
+
+#footer-placeholder .footer-columns {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+#footer-placeholder .footer-columns li {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Ensure no underline on list items */
+    list-style: none; /* Remove bullet points */
+    font-size: 14px; /* Set font size for all list items */
+}
+
+#footer-placeholder .FooterLogo {
+    height: 30px;
+}
+
+#footer-placeholder .footer-columns .column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+#footer-placeholder .footer-columns .column h3 {
+    margin-bottom: 10px;
+    font-size: 14px; /* Set header font size to match links */
+}
+
+#footer-placeholder .footer-columns .column ul {
+    list-style: none; /* Ensure no bullet points in the list */
+    padding: 0;
+}
+
+#footer-placeholder .footer-columns .column ul li {
+    margin-bottom: 5px;
+}
+
+#footer-placeholder .footer-columns .column ul li a {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Font size for links */
+}
+
+#footer-placeholder .footer-columns .column ul li a:hover,
+#footer-placeholder .footer-columns .column ul li a:focus {
+    color: #ff7373; /* Change to light red on hover and focus */
+    text-decoration: none; /* No underline on hover and focus */
+}
+
+#footer-placeholder .footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    font-size: 14px; /* Font size for footer bottom text */
+}
+
+/* Additional styles to control outlines */
+#footer-placeholder footer * {
+    outline: none; /* Remove outlines from footer elements */
+    border: none; /* Remove borders from footer elements */
+}
