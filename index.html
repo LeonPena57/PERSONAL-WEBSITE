@@ -18,7 +18,7 @@
     </style>
 </head>
 <body id="designs">
-    <div id="header-placeholder" include-html="header.html"></div> 
+    <div id="header-placeholder" include-html="/Nav\header.html"></div> 
     <main>
         <div class="rain-container"></div>
         <div class="falling-circles-container" id="falling-circles-container"></div>
@@ -270,7 +270,7 @@
     <!-- FOOOOOTER -->
     <div id="footer-placeholder"></div>
 <script>
-    fetch('footer.html')
+    fetch('/Nav/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;

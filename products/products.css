@@ -1,0 +1,200 @@
+.gallery-container {
+    display: flex;
+    padding-bottom: 55px;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px;
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.image-section img {
+    width: 720px; /* Set a fixed width for the big image */
+    height: auto;
+}
+
+.thumbnail-container {
+    display: flex;
+    align-items: center; /* Center align the thumbnails and arrows */
+    width: 750px; /* Ensure it matches the big image */
+    margin-top: 10px;
+}
+
+.thumbnails {
+    display: flex; /* Flex container for thumbnails */
+    align-items: center; /* Center align thumbnails */
+}
+
+.thumbnail-container img {
+    max-width: 100px; /* Adjusted size for thumbnails */
+    max-height: 100px; /* Maintain aspect ratio */
+    margin: 0 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s ease-in-out;
+}
+
+.thumbnail-container img:hover {
+    border: 2px solid #ff7373; /* Highlight active thumbnail */
+}
+
+.overlay-arrows {
+    color: rgb(255, 255, 255); /* White color for the arrows */
+    border: none; /* Remove border */
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+    cursor: pointer;
+    font-size: 40px; /* Increase arrow size */
+    padding: 10px; /* Padding for better click area */
+    transition: color 0.3s; /* Transition effect */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+}
+
+#prev-popup,
+#next-popup {
+    position: absolute;
+    top: 50%; /* Center the arrows vertically */
+    transform: translateY(-50%); /* Adjust for centering */
+    padding: 10px; /* Ensure enough clickable area */
+}
+
+#prev-popup {
+    left: 20px; /* Position left arrow */
+}
+
+#next-popup {
+    right: 20px; /* Position right arrow */
+}
+
+.overlay-arrows:hover {
+    color: #ff7373; /* Change arrow color on hover */
+}
+
+.text-box {
+    background: #2222222c;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid white;
+    text-align: center;
+    width: 500px; /* Match the width of the main image */
+    height: auto; /* Adjust height */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.text-box p, li, h1 {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.text-box button {
+    font-family: 'Trueno', serif; /* Apply to all h1 and h2 elements */
+    font-weight: 900; /* Ensure the bold weight is used */
+    padding: 10px 20px;
+    background-color: #ff7373;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.text-box button:hover {
+    background-color: #ffffff;  
+    color: #ff7373;
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 50%; /* Center the popup */
+    top: 50%; /* Center the popup */
+    transform: translate(-50%, -50%); /* Offset the popup by half its width and height */
+    background-color: rgba(0, 0, 0, 0.8); /* Background color with transparency */
+    padding: 20px; /* Padding around the image */
+    backdrop-filter: blur(5px); /* Add blur effect to the background */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.popup-content {
+    width: 1440px; /* Set to 2x larger than the original size (720px) */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Block element */
+    margin: auto; /* Center the image */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white; /* Close button color */
+    font-size: 40px; /* Increase size */
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3); /* Black background with transparency */
+    padding: 5px 10px; /* Padding around the close button */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.close:hover {
+    color: #ff7373; /* Change color on hover */
+}
+
+@font-face {
+    font-family: 'Trueno';
+    src: url('./fonts/TRUENOBLK.OTF') format('opentype');
+    font-weight: 900; /* Black weight */
+}
+
+h1 {
+    font-family: 'Trueno', sans-serif;
+    font-weight: 900; /* Ensure it uses the Black weight */
+}
+
+@font-face {
+    font-family: 'Trueno';
+    src: url('./fonts/TRUENOLGT.OTF') format('opentype');
+    font-weight: 300; /* Light weight */
+}
+
+.text-box ul {
+    list-style-type: disc; /* Add bullets */
+    padding-left: 20px; /* Add padding to left-align */
+    text-align: left; /* Align text to the left */
+}
+
+.text-box p {
+    font-family: 'Trueno', sans-serif;
+    font-weight: 300; /* Ensure it uses the Light weight */
+    text-align: left; /* Align text to the left */
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/photos/photos.css">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="preload" href="./fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
-    <link rel="preload" href="./fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
     <style>
         @font-face {
             font-family: 'Trueno';
-            src: url('./fonts/TRUENOBLK.OTF') format('opentype');
+            src: url('/fonts/TRUENOBLK.OTF') format('opentype');
             font-weight: 900; /* Black weight */
         }
     </style>
@@ -23,60 +23,60 @@
             <div class="rain-container"></div>
             <div class="falling-circles-container" id="falling-circles-container"></div>
             
-            <div id="header-placeholder" include-html="header.html"></div>
+            <div id="header-placeholder" include-html="/Nav/header.html"></div>
 
             <p id="PTitle">Japan 2024</p>
             <div class="photo-grid">
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Osaka1.png" alt="Photo 1" class="protected">
+                    <img src="/images/photos/Osaka1.png" alt="Photo 1" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/OsakaDay.png" alt="Photo 2" class="protected">
+                    <img src="/images/photos/OsakaDay.png" alt="Photo 2" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/OsakaNight.png" alt="Photo 3" class="protected">
+                    <img src="/images/photos/OsakaNight.png" alt="Photo 3" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Tok1.png" alt="Photo 4" class="protected">
+                    <img src="/images/photos/Tok1.png" alt="Photo 4" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Tok2.png" alt="Photo 5" class="protected">
+                    <img src="/images/photos/Tok2.png" alt="Photo 5" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Tok3.png" alt="Photo 6" class="protected">
+                    <img src="/images/photos/Tok3.png" alt="Photo 6" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Tok4.png" alt="Photo 7" class="protected">
+                    <img src="/images/photos/Tok4.png" alt="Photo 7" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Tok5.png" alt="Photo 8" class="protected">
+                    <img src="/images/photos/Tok5.png" alt="Photo 8" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Tok6.png" alt="Photo 9" class="protected">
+                    <img src="/images/photos/Tok6.png" alt="Photo 9" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Tok7.png" alt="Photo 10" class="protected">
+                    <img src="/images/photos/Tok7.png" alt="Photo 10" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Tok8.png" alt="Photo 11" class="protected">
+                    <img src="/images/photos/Tok8.png" alt="Photo 11" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/Tok9.png" alt="Photo 12" class="protected">
+                    <img src="/images/photos/Tok9.png" alt="Photo 12" class="protected">
                 </div>
             </div>
             <p id="PTitle">SanFran 2022</p>
             <div class="photo-grid">
                 <div class="photo-wrapper">
-                    <img src="./images/photos/SanFran1.png" alt="Photo 1" class="protected">
+                    <img src="/images/photos/SanFran1.png" alt="Photo 1" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/SanFran2.png" alt="Photo 2" class="protected">
+                    <img src="/images/photos/SanFran2.png" alt="Photo 2" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/SanFran3.png" alt="Photo 3" class="protected">
+                    <img src="/images/photos/SanFran3.png" alt="Photo 3" class="protected">
                 </div>
                 <div class="photo-wrapper">
-                    <img src="./images/photos/SanFran4.png" alt="Photo 4" class="protected">
+                    <img src="/images/photos/SanFran4.png" alt="Photo 4" class="protected">
                 </div>
             </div>
         </main>
@@ -84,12 +84,13 @@
     <!-- FOOTER -->
     <footer id="footer-placeholder"></footer>
     <script>
-        fetch('footer.html')
+        fetch('/Nav/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
         });
     </script>
     <script src="/script.js"></script>
+    <script src="./photos.js"></script>
 </body>
 </html>

@@ -5,21 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designs - FateCreates</title>
     <link rel="stylesheet" href="/styles.css">
-    <link rel="stylesheet" href="/photos/photos.css">
-    <link rel="stylesheet" href="/designs/designs.html">
+    <link rel="stylesheet" href="/products/products.css">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="preload" href="./fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
-    <link rel="preload" href="./fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
     <style>
         @font-face {
             font-family: 'Trueno';
-            src: url('./fonts/TRUENOBLK.OTF') format('opentype');
+            src: url('/fonts/TRUENOBLK.OTF') format('opentype');
             font-weight: 900; /* Black weight */
         }
     </style>
 </head>
 <body id="products">
-    <div id="header-placeholder" include-html="header.html"></div>
+    <div id="header-placeholder" include-html="/Nav/header.html"></div>
     
     <main>
         <div class="rain-container"></div>
@@ -40,71 +39,108 @@
 
         <p id="PTitle">Coming Soon</p>
 
-        <div class="row">
-            <div class="column category-box" data-category-id="category1">
-                <img src="./images/previews/rajparikh396OVERLAY.png">
-                <div class="overlay-text">OVERLAYS | $35</div>
+        <h1 class="New-Products">-NEW PRODUCTS-</h1>
+
+        <div class="gallery-container">
+            <!-- First Section (Original) -->
+            <div class="image-section">
+                <div class="main-image-container">
+                    <img id="main-image" src="/images/main/Overlay1.png" alt="Main Image" onclick="openPopup('/images/main/Overlay1.png', 0)">
+                </div>
+                <div class="thumbnail-container">
+                    <button class="overlay-arrows" id="prev" onclick="prevThumbnailImage()">&#10094;</button>
+                    <div class="thumbnails">
+                        <img id="thumbnail-1" src="/images/main/Overlay2.png" alt="Thumbnail 1" onclick="openPopup('/images/main/Overlay2.png', 1)">
+                        <img id="thumbnail-2" src="/images/main/Overlay3.png" alt="Thumbnail 2" onclick="openPopup('/images/main/Overlay3.png', 2)">
+                    </div>
+                    <button class="overlay-arrows" id="next" onclick="nextThumbnailImage()">&#10095;</button>
+                </div>
             </div>
-            <div class="column category-box" data-category-id="category2">
-                <img src="./images/previews/JonathanVTN1.png">
-                <div class="overlay-text">THUMBNAILS | $20</div>
+            <div class="text-box">
+                <h1>STREAM OVERLAYS</h1>
+                <p>Along with offering custom overlays, we've created an easy, fast way for you to design your own overlay in no time! Choose from a variety of themes, including:</p>
+                <ul>
+                    <li>Shiny Hunting</li>
+                    <li>General Playthrough</li>
+                    <li>Pokemon VS</li>
+                    <li>Nuzlocke</li>
+                    <li>And Many More!</li>
+                </ul>
+                <p>Your creativity is at the heart of our design. Customize everything, from unique Poké Balls to backgrounds and border colors, and create a personalized overlay that suits your style perfectly!</p>
+                <button>Get Started</button>
             </div>
         </div>
         
-        <!-- Images within each category (hidden initially) -->
-        <div class="column category-images" data-category-id="category1">
-            <img src="./images/overlays/3Short2Congrats.png">
-            <img src="./images/previews/rajparikh396OVERLAY.png">
-            <img src="./images/overlays/1Holdup85.png">
-            <img src="./images/overlays/2.png">
-            <img src="./images/overlays/222.png">
-            <img src="./images/overlays/2briany120828.png">
-            <img src="./images/overlays/2JonathanVOVERLAY.png">
-            <img src="./images/overlays/2QJCosmicOVERLAY.png">
-            <img src="./images/overlays/3tiehkay.png">
-            <img src="./images/overlays/anthonypollins.png">
-            <img src="./images/overlays/bCarybylisOV.png">
-            <img src="./images/overlays/CaptainShakey2.png">
-            <img src="./images/overlays/CrimsonINSURGENCE2.png">
-            <img src="./images/overlays/deanforlanoTRIPLEFC.png">
-            <img src="./images/overlays/Display.png">
-            <img src="./images/overlays/DS2.png">
-            <img src="./images/overlays/ETB.png">
-            <img src="./images/overlays/Fix2.png">
-            <img src="./images/overlays/FixShort2SV.png">
-            <img src="./images/overlays/Lugia.png">
-            <img src="./images/overlays/krayyzeeOVERLAY.png">
-            <img src="./images/overlays/Short25Fuse.png">
+        <div class="gallery-container flipped">
+            <!-- Second Section (Flipped) -->
+            <div class="text-box">
+                <h1>STREAM OVERLAYS</h1>
+                <p>Along with offering custom overlays, we've created an easy, fast way for you to design your own overlay in no time! Choose from a variety of themes, including:</p>
+                <ul>
+                    <li>Shiny Hunting</li>
+                    <li>General Playthrough</li>
+                    <li>Pokemon VS</li>
+                    <li>Nuzlocke</li>
+                    <li>And Many More!</li>
+                </ul>
+                <p>Your creativity is at the heart of our design. Customize everything, from unique Poké Balls to backgrounds and border colors, and create a personalized overlay that suits your style perfectly!</p>
+                <button>Get Started</button>
+            </div>
+            <div class="image-section">
+                <div class="main-image-container">
+                    <img id="main-image" src="/images/main/Overlay1.png" alt="Main Image" onclick="openPopup('/images/main/Overlay1.png', 0)">
+                </div>
+                <div class="thumbnail-container">
+                    <button class="overlay-arrows" id="prev" onclick="prevThumbnailImage()">&#10094;</button>
+                    <div class="thumbnails">
+                        <img id="thumbnail-1" src="/images/main/Overlay2.png" alt="Thumbnail 1" onclick="openPopup('/images/main/Overlay2.png', 1)">
+                        <img id="thumbnail-2" src="/images/main/Overlay3.png" alt="Thumbnail 2" onclick="openPopup('/images/main/Overlay3.png', 2)">
+                    </div>
+                    <button class="overlay-arrows" id="next" onclick="nextThumbnailImage()">&#10095;</button>
+                </div>
+            </div>
         </div>
-        <div class="column category-images" data-category-id="category2">
-            <img src="./images/thumbnails/CelebLIVE.png">
-            <img src="./images/thumbnails/EeveeLIVE.png">
-            <img src="./images/thumbnails/GameCOrnerLIVE.png">
-            <img src="./images/thumbnails/jirachi.png">
-            <img src="./images/thumbnails/LIVEHeartGOLD.png">
-            <img src="./images/thumbnails/Mew.png">
-            <img src="./images/thumbnails/PINSIRVOD.png">
-            <img src="./images/thumbnails/Registeel.png">
-            <img src="./images/thumbnails/RS STARTS.png">
-            <img src="./images/thumbnails/Starters2.png">
-            <img src="./images/thumbnails/TNDTQ.png">
-            <img src="./images/thumbnails/VODPinball.png">
-            <img src="./images/thumbnails/X Y LIVE.png">
-            <img src="./images/thumbnails/XY2 LIVE.png">
+        
+        <div class="gallery-container">
+            <!-- Third Section (Original) -->
+            <div class="image-section">
+                <div class="main-image-container">
+                    <img id="main-image" src="/images/main/Overlay1.png" alt="Main Image" onclick="openPopup('/images/main/Overlay1.png', 0)">
+                </div>
+                <div class="thumbnail-container">
+                    <button class="overlay-arrows" id="prev" onclick="prevThumbnailImage()">&#10094;</button>
+                    <div class="thumbnails">
+                        <img id="thumbnail-1" src="/images/main/Overlay2.png" alt="Thumbnail 1" onclick="openPopup('/images/main/Overlay2.png', 1)">
+                        <img id="thumbnail-2" src="/images/main/Overlay3.png" alt="Thumbnail 2" onclick="openPopup('/images/main/Overlay3.png', 2)">
+                    </div>
+                    <button class="overlay-arrows" id="next" onclick="nextThumbnailImage()">&#10095;</button>
+                </div>
+            </div>
+            <div class="text-box">
+                <h1>STREAM OVERLAYS</h1>
+                <p>Along with offering custom overlays, we've created an easy, fast way for you to design your own overlay in no time! Choose from a variety of themes, including:</p>
+                <ul>
+                    <li>Shiny Hunting</li>
+                    <li>General Playthrough</li>
+                    <li>Pokemon VS</li>
+                    <li>Nuzlocke</li>
+                    <li>And Many More!</li>
+                </ul>
+                <p>Your creativity is at the heart of our design. Customize everything, from unique Poké Balls to backgrounds and border colors, and create a personalized overlay that suits your style perfectly!</p>
+                <button>Get Started</button>
+            </div>
         </div>
-        <div class="column category-images" data-category-id="category3">
+        
 
-            
     </main>
     <div id="footer-placeholder"></div>
     <script>
-        fetch('footer.html')
+        fetch('/Nav/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
             });
     </script>
-    <script src="/script.js"></script>
-    <script src="/designs/designs.js"></script>
+    <script src="/products/products.js"></script>
 </body>
 </html>
