@@ -1,0 +1,999 @@
+ body, html {
+    height: 100%;
+    margin: 0;
+    overflow: auto; /* Allow scrolling */
+    background-color: #202020; /* Background color for visibility */
+}
+
+ /* NEON SIGN */
+
+ @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Luckiest+Guy&display=swap');
+
+ .neon-text {
+     font-family: 'Kanit', sans-serif;
+     font-size: 3em; /* Adjust font size for desktop */
+     color: #0ff;
+     text-align: center;
+     text-shadow: 
+         0 0 5px #0ff,
+         0 0 10px #0ff,
+         0 0 15px #0ff,
+         0 0 20px #0ff,
+         0 0 25px #0ff,
+         0 0 30px #0ff,
+         0 0 35px #0ff,
+         0 0 40px #0ff;
+     -webkit-text-stroke: 4.5px white; /* Thicker white outline */
+     opacity: 1; /* Make the text fully visible */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: auto;
+     padding: 0 20px;
+ }
+ 
+ @keyframes glow {
+     0%, 100% {
+         opacity: 1; /* Fully visible */
+     }
+     10% {
+         opacity: 0.25;
+     }
+     20% {
+         opacity: 0.5;
+     }
+     30% {
+         opacity: 0.1;
+     }
+     40% {
+         opacity: 0.3;
+     }
+     50% {
+         opacity: 1; /* Return to fully visible */
+     }
+ }
+ 
+ .letter {
+     animation: none; /* Start with no animation */
+     display: inline-block;
+     margin-right: -10px; /* Keeps letters close together */
+     direction: ltr; /* Ensuring left-to-right */
+     transform: none; /* Ensure no flipping is applied */
+ }
+ 
+ .dimmed {
+     animation: glow 1s infinite;
+ }
+ 
+ /* Styling for header content */
+ .header-content {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     min-height: 100vh;
+     text-align: center;
+ }
+ 
+ .header-content h1 {
+     font-family: 'Luckiest Guy', cursive;
+     font-size: 18rem; /* Original size for large screens */
+     transform: rotate(-5deg); /* Tilt the text slightly */
+     margin: -10px 0 -95px;
+     direction: ltr; /* Ensure the text direction is left-to-right */
+ }
+ 
+ .header-content p {
+     font-family: 'Luckiest Guy', cursive;
+     font-size: 5rem; /* Original size for large screens */
+     transform: rotate(-5deg); /* Tilt the text slightly */
+     margin: 15px 0 25px;
+ }
+ 
+ /* Responsive design for smaller screens */
+ @media only screen and (max-width: 600px) {
+     .neon-text {
+         font-size: 1.5em; /* Smaller font size for mobile */
+         text-shadow: 
+             0 0 3px #0ff,
+             0 0 5px #0ff,
+             0 0 7px #0ff,
+             0 0 10px #0ff,
+             0 0 15px #0ff;
+         -webkit-text-stroke: 0.5px white; /* Adjusted outline for mobile */
+     }
+ 
+     .letter {
+         margin-right: -5px; /* Adjust spacing for mobile */
+     }
+ 
+     .header-content h1 {
+         font-size: 5rem; /* Smaller size for mobile */
+         margin: -5px 0 -45px;
+     }
+ 
+     .header-content p {
+         font-size: 2rem; /* Smaller size for mobile */
+         margin: 10px 0 15px;
+     }
+ }
+ 
+ 
+/* END NEON *
+
+/* CONTENT */
+.titletext {
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    font-family: TRUENO;
+}
+
+.titletext1 {
+    color: white;
+    padding-top: 105px;
+    font-size: 36px;
+    text-align: center;
+    font-family: TRUENO;
+}
+
+#gradient-text {
+    background: linear-gradient(to bottom, #ffffff, #ffffff 50%, #bdbdbd 50%, #bdbdbd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 175px 0;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff; /* Circle outline */
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #fff; /* Triangle color */
+    animation: bounce 2s infinite;
+    position: relative;
+    top: 2px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=TRUENO+BLACK&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'TRUENO BLACK', sans-serif; /* Apply TRUENO BLACK font */
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Optional: for contrast with white boxes */
+}
+
+.container {
+    display: flex; /* Use flexbox to control layout more directly */
+    align-items: center; /* Center align all items vertically */
+    justify-content: center; /* Center align all items horizontally */
+    max-width: 1000px;
+    margin: -10px auto;
+    gap: 10px; /* Set the gap between the long and small boxes */
+}
+
+.long-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Evenly distribute space above and below the text */
+    align-items: center;
+    height: 150px; /* Height for the long boxes */
+    width: 400px; /* Width for the long boxes */
+    border-radius: 5px;
+}
+
+/* Define each line's size and positioning */
+.box-line {
+    margin: 0; /* Remove margin to eliminate extra space */
+}
+
+.top-text {
+    padding-top: 3px;
+    text-align: center;
+    font-family: 'Trueno', sans-serif;
+    font-weight: 900; /* Ensure the bold weight is used */
+    font-size: 42px; /* Top text size */
+}
+
+.middle-text {
+    text-align: center;
+    font-family: 'Trueno', sans-serif;
+    font-weight: 900; /* Ensure the bold weight is used */
+    font-size: 52px; /* Middle text size */
+}
+
+.bottom-text {
+    padding-bottom: 25px;
+    text-align: center;
+    font-family: 'Trueno', sans-serif;
+    font-weight: 900; /* Ensure the bold weight is used */
+    font-size: 18px; /* Bottom text size */
+}
+
+/* First Long Box - White with Light Red Text */
+.white-box {
+    text-align: center;
+    background-color: white;
+    color: #ff7373; /* Light red text */
+    border: 0px solid #ff7373;
+}
+
+/* Second Long Box - Light Red with Black Text */
+.red-box {
+    text-align: center;
+    background-color: #ff7373;
+    color: rgb(255, 255, 255);
+    border: 0px solid white;
+}
+
+/* Stacked Smaller Boxes for Images */
+.small-boxes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 150px; /* Match height of the long boxes */
+    gap: 10px; /* Set 10px gap between the small boxes */
+}
+
+/* Small Box Styling */
+.small-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: calc(50% - 5px); /* Half the height of the small boxes with gap adjustment */
+    width: 120px; /* Width for the small boxes */
+    background-color: white; /* Default white background */
+    border-radius: 5px;
+    margin: auto; /* Center the small boxes horizontally */
+}
+
+/* Image Styling */
+.small-box img {
+    max-width: 45%;
+    max-height: 45%;
+    object-fit: contain;
+    margin: auto; /* Center the image within the box */
+}
+
+/* Adjusting the color for small boxes */
+.white-small {
+    background-color: white;
+}
+
+.red-small {
+    background-color: #ff7373;
+    border-color: black;
+}
+
+.red-small img {
+    max-width: 55%;
+    max-height: 55%;
+    object-fit: contain;
+    margin: auto;
+}
+
+/* END CONTENT */
+
+/* ------------ SCROLL INDICATOR ------------------ */
+
+.scroll-indicator {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    position: relative;
+    margin: 20px;
+    cursor: pointer; /* Make it clear that it's clickable */
+}   
+.scroll-indicator .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-indicator .triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid white;
+}
+
+/* ------------ END SCROLL INDICATOR ------------------ */
+
+/* ------------- R E V I E W S --------------- */
+
+input[type="text"],
+input[type="url"],
+textarea {
+    width: 100%; /* Full width of the container */
+    padding: 10px; /* Padding for the input boxes */
+    border: 1px solid #ff7373; /* Light red border */
+    border-radius: 5px; /* Rounded edges */
+    font-size: 16px; /* Font size */
+    color: #333; /* Dark text color */
+    background-color: #fff; /* White background */
+    margin-bottom: 15px; /* Space between input boxes */
+    transition: border 0.3s; /* Transition for border color on focus */
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    border-color: #ff7373; /* Darker red border on focus */
+    outline: none; /* Remove default outline */
+}
+
+textarea {
+    height: 100px; /* Set a fixed height for the textarea */
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* -------------- LEFT REVIEWS ---------- */
+.reviews-section {
+    width: 900px; /* Match chat box width */
+    margin: 20px auto;
+    border: none; /* No border around container */
+}
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Adjust height to fit content */
+}
+
+.review-box {
+    margin-bottom: 10px;
+    padding: 10px; /* Ensure padding around elements */
+    background-color: transparent; /* Fully transparent background */
+    border: 1px solid white; /* White outline */
+    border-radius: 3px;
+    color: white; /* White text */
+    width: fit-content; /* Automatically adjust width to fit content */
+}
+
+.review-content {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    padding: 10px;
+    background-color: transparent; /* Fully transparent background */
+}
+
+.reviewer-image img {
+    width: 30px; /* Adjust width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.review-text {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    padding: 10px;
+    border-radius: 3px;
+    background-color: transparent; /* Fully transparent background */
+    color: white; /* White text */
+    flex: 1; /* Ensure text takes up remaining space */
+}
+
+.reviewer-name {
+    color: #FF6F61; /* Nice red color for the names */
+    font-weight: bold; /* Bold font for names */
+    margin-right: 5px; /* Space between name and stars */
+    font-size: 1em; /* Reduce font size for better fit */
+}
+
+.stars {
+    color: #FF6F61; /* Star color */
+    font-size: 1em; /* Adjust size as needed */
+    margin-left: 5px; /* Space between name and stars */
+    align-self: flex-start; /* Align stars with the name */
+    margin-top: -2px; /* Adjust vertical position */
+}
+
+.review-message {
+    color: white; /* White text */
+    padding: 10px; /* Ensure padding around text */
+    margin-top: -25px; /* Space above the review text */
+    background-color: transparent; /* Fully transparent background */
+}
+
+.social-links {
+    margin-bottom: -25px;
+    display: flex;
+    align-items: center; /* Center icons vertically */
+    margin-top: 5px; /* Space above the social links */
+    background-color: transparent; /* Fully transparent background */
+    justify-content: flex-start; /* Align to the bottom left */
+}
+
+.social-icon {
+    margin-left: 5px; /* Space between icons */
+}
+
+.social-icon img {
+    width: 20px; /* Reduced icon size */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 20px; /* Ensure icon does not exceed max height */
+}
+
+.additional-text {
+    text-align: right; /* Align the additional text to the bottom right */
+    color: white; /* White text */
+    font-size: 0.8em; /* Adjust font size as needed */
+    margin-top: 0; /* No space above the additional text */
+    background-color: transparent; /* Fully transparent background */
+}
+
+.additional-text a {
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+}
+
+.additional-text a:hover {
+    color: #1DBF73; /* Change color on hover */
+}
+
+.reviews-section h2 {
+    text-align: center; /* Center the heading */
+    font-size: 2em; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Space below the heading */
+    background-color: transparent; /* Fully transparent background */
+}
+
+.review-content p {
+    color: white; /* Text color for review content */
+    margin: 0; /* Remove margin for better control over height */
+}
+
+.malteseboy-review {
+    padding: 10px; /* Adjust padding for this specific review box */
+    margin-bottom: 10px; /* Space below the review box */
+    width: fit-content; /* Adjust width to fit content */
+}
+
+.malteseboy-review .review-message {
+    margin: 5px 0; /* Reduce margin for the message */
+}
+
+.malteseboy-review .social-links {
+    margin-top: 0; /* Remove margin above social links */
+    justify-content: flex-start; /* Align to the bottom left */
+}
+
+.malteseboy-review .additional-text {
+    margin-top: 5px; /* Space above the additional text */
+    text-align: right; /* Align to the bottom right */
+}
+
+
+/* --------- E ND REVIEEW ----------------- */
+
+/* LEAVE A REVIEW */
+
+.reviews-form {
+    margin: 20px auto; /* Center the container and add some vertical margin */
+    width: 90%; /* Full width of the container */
+    max-width: 800px; /* Maximum width for the container */
+    display: flex; /* Enable flexbox for centering */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.reviews-form h2 {
+    padding-top: 40px;
+}
+
+.review-inputs {
+    display: flex;
+    flex-direction: column;
+    color: white; /* Text color inside the box */
+}
+
+.name-rating-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between name input and stars */
+    margin-bottom: 20px; /* Increased space below this container */
+}
+
+.name-container {
+    flex: 1; /* Allows the name input to take available space */
+    margin-right: 20px; /* Increased space between name and stars */
+    margin-bottom: -25px;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    margin-bottom: -20px;
+    margin-left: 20px; /* Space between name and stars */
+    cursor: pointer;
+}
+
+.star {
+    font-size: 40px; /* Adjust the size of the stars */
+    color: lightgray; /* Color for unselected stars */
+}
+
+.star.selected {
+    color: #fce694; /* Color for selected stars */
+}
+
+.thoughts-container textarea {
+    width: 100%; /* Full width of the container */
+    height: 120px; /* Increased height for the thoughts box */
+    border: 1px solid #ccc; /* Add a border to the textarea */
+    border-radius: 5px; /* Rounded edges */
+    padding: 0px; /* Padding inside the textarea */
+    resize: none; /* Prevent resizing of the textarea */
+}
+
+.submit-button {
+    background-color: #ff7373; /* Red background for submit button */
+    color: white; /* White text for submit button */
+    border: none; /* Remove the black border */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded edges for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Adjust font size */
+    transition: background-color 0.3s, color 0.3s, border 0.3s; /* Transition for hover effect */
+    margin-top: 10px; /* Space above the button */
+}
+
+.submit-button:hover {
+    background-color: white; /* White background on hover */
+    color: #ff7373; /* Red text on hover */
+    border: 3px solid #ff7373; /* Red border on hover */
+}
+
+
+/* END LEAVE */
+
+
+
+/* ------------------------ NEW PRODUCT ------------------------- */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+.container, .New-Products {
+    font-size: 36px;
+    text-align: center;
+    font-family: 'Trueno', sans-serif;
+}
+
+.New-Products {
+    margin-top: 50px;
+}
+
+.boxes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Maintain spacing between boxes */
+    flex-wrap: wrap;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Set consistent height */
+    padding: 15px;
+    margin: 10px;
+}
+
+.white-box {
+    background-color: white;
+    color: #FF6F61;
+}
+
+.color-box {
+    background-color: #FF6F61;
+    color: white;
+}
+
+.logo-box {
+    background-color: white;
+}
+
+.logo-box img {
+    max-width: 100%;
+    height: auto; /* Ensures logo fits well within the box */
+}
+
+.image-container {
+    padding-bottom: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 50%;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/* ----------------------------- NEW PRODUCT END ---------------------- */
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ----------- CAROUSEL START ---------- */
+
+.carousel-container { 
+    padding-bottom: 35px;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* New Carousel Container with Background Box Effect */
+.new-carousel-container {
+    padding-bottom: 35px;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(41, 31, 31, .85); /* Background color with 75% opacity */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+/* Carousel Slides */
+.carousel-slide, .new-carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    justify-content: center;
+    flex-direction: row; /* Horizontal layout */
+}
+
+/* Carousel Items */
+.carousel-item, .new-carousel-item {
+    flex: 0 0 auto;
+    width: 150px;
+    margin: 0 12.5px; /* Total 25px space between items */
+    transition: transform 0.5s, opacity 0.5s;
+    text-align: center;
+    opacity: 0.5; /* Default unfocused */
+}
+
+/* Image Styling */
+.carousel-item img, .new-carousel-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 50px; /* Prevents cut-off at the top */
+}
+
+/* Carousel Text Styling */
+.carousel-item p, .new-carousel-item p {
+    color: white;
+    margin-top: 10px;
+}
+
+/* Active Item Styling */
+.carousel-item.active, .new-carousel-item.active {
+    opacity: 1;
+    animation: bounceIn 0.5s forwards;
+    z-index: 2; /* Bring to front */
+}
+
+/* Unfocused Item Styling */
+.carousel-item.unfocused, .new-carousel-item.unfocused {
+    animation: bounceOut 0.5s forwards;
+}
+
+/* Arrow Styling */
+.carousel-arrow, .new-carousel-arrow {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Dynamic Arrow Positioning */
+.carousel-arrow.left, .new-carousel-arrow.left {
+    left: 5%; /* Adjust based on container width */
+}
+
+.carousel-arrow.right, .new-carousel-arrow.right {
+    right: 5%; /* Adjust based on container width */
+}
+
+
+
+/* ------------------- END CAROUSEL ---------------- */
+
+.gallery-container {
+    display: flex;
+    padding-bottom: 55px;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px;
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.main-image-container img {
+    width: 720px; /* Set a fixed width for the big image */
+    height: auto;
+}
+
+.thumbnail-container {
+    display: flex;
+    align-items: center; /* Center align the thumbnails and arrows */
+    width: 750px; /* Ensure it matches the big image */
+    margin-top: 10px;
+}
+
+.thumbnails {
+    display: flex; /* Flex container for thumbnails */
+    align-items: center; /* Center align thumbnails */
+}
+
+.thumbnail-container img {
+    max-width: 100px; /* Adjusted size for thumbnails */
+    max-height: 100px; /* Maintain aspect ratio */
+    margin: 0 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s ease-in-out;
+}
+
+.thumbnail-container img:hover {
+    border: 2px solid #ff7373; /* Highlight active thumbnail */
+}
+
+.overlay-arrows {
+    color: rgb(255, 255, 255); /* White color for the arrows */
+    border: none; /* Remove border */
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+    cursor: pointer;
+    font-size: 40px; /* Increase arrow size */
+    padding: 10px; /* Padding for better click area */
+    transition: color 0.3s; /* Transition effect */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+}
+
+#prev-popup,
+#next-popup {
+    position: absolute;
+    top: 50%; /* Center the arrows vertically */
+    transform: translateY(-50%); /* Adjust for centering */
+    padding: 10px; /* Ensure enough clickable area */
+}
+
+#prev-popup {
+    left: 20px; /* Position left arrow */
+}
+
+#next-popup {
+    right: 20px; /* Position right arrow */
+}
+
+
+.overlay-arrows:hover {
+    color: #ff7373; /* Change arrow color on hover */
+}
+
+.text-box {
+    background: #2222222c;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid white;
+    text-align: center;
+    width: 500px; /* Match the width of the main image */
+    height: auto; /* Adjust height */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.text-box p, li, h1 {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.text-box button {
+    font-family: 'Trueno', serif; /* Apply to all h1 and h2 elements */
+    font-weight: 900; /* Ensure the bold weight is used */
+    padding: 10px 20px;
+    background-color: #ff7373;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.text-box button:hover {
+    background-color: #ffffff;  
+    color: #ff7373;
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 50%; /* Center the popup */
+    top: 50%; /* Center the popup */
+    transform: translate(-50%, -50%); /* Offset the popup by half its width and height */
+    background-color: rgba(0, 0, 0, 0.8); /* Background color with transparency */
+    padding: 20px; /* Padding around the image */
+    backdrop-filter: blur(5px); /* Add blur effect to the background */
+    overflow: hidden; /* Prevent overflow */
+}
+
+
+.popup-content {
+    width: 1440px; /* Set to 2x larger than the original size (720px) */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Block element */
+    margin: auto; /* Center the image */
+}
+
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white; /* Close button color */
+    font-size: 40px; /* Increase size */
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3); /* Black background with transparency */
+    padding: 5px 10px; /* Padding around the close button */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.close:hover {
+    color: #ff7373; /* Change color on hover */
+}
+
+
+
+@font-face {
+    font-family: 'Trueno';
+    src: url('./fonts/TRUENOBLK.OTF') format('opentype');
+    font-weight: 900; /* Black weight */
+}
+
+h1 {
+    font-family: 'Trueno', sans-serif;
+    font-weight: 900; /* Ensure it uses the Black weight */
+}
+
+@font-face {
+    font-family: 'Trueno';
+    src: url('./fonts/TRUENOLGT.OTF') format('opentype');
+    font-weight: 300; /* Light weight */
+}
+
+.text-box ul {
+    list-style-type: disc; /* Add bullets */
+    padding-left: 20px; /* Add padding to left-align */
+    text-align: left; /* Align text to the left */
+}
+
+.text-box p {
+    font-family: 'Trueno', sans-serif;
+    font-weight: 300; /* Ensure it uses the Light weight */
+    text-align: left; /* Align text to the left */
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

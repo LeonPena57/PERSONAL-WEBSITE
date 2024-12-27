@@ -3,28 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designs - FateCreates</title>
+    <title>Photo - FateCreates</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/photos/photos.css">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="preload" href="/fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
-    <style>
-        @font-face {
-            font-family: 'Trueno';
-            src: url('/fonts/TRUENOBLK.OTF') format('opentype');
-            font-weight: 900; /* Black weight */
-        }
-    </style>
+    <link rel="preload" href="./fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
 </head>
-<body id="photos">
+<body id="photo">
+
+        <div class="rain-container"></div>
+        <div class="falling-circles-container" id="falling-circles-container"></div>    
+        <div id="header-placeholder" include-html="/Nav/header.html"></div>
+
     <div id="content-wrapper">
         <main>
-            <div class="rain-container"></div>
-            <div class="falling-circles-container" id="falling-circles-container"></div>
-            
-            <div id="header-placeholder" include-html="/Nav/header.html"></div>
-
             <p id="PTitle">Japan 2024</p>
             <div class="photo-grid">
                 <div class="photo-wrapper">
@@ -80,17 +73,26 @@
                 </div>
             </div>
         </main>
-    </div>
+    </div>    
+    
+    <script src="/script.js"></script>
+    <script src="./photos.js"></script>
+    
     <!-- FOOTER -->
     <footer id="footer-placeholder"></footer>
     <script>
+        fetch('/Nav/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+            
         fetch('/Nav/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        });
-    </script>
-    <script src="/script.js"></script>
-    <script src="./photos.js"></script>
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script> 
+
 </body>
 </html>

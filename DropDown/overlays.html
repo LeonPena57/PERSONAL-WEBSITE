@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlays - FateCreates</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/DropDown/showcase.css">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preload" href="/fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
+</head>
+<body>
+
+    <div id="header-placeholder" include-html="/Nav/header.html"></div>
+
+    <div class="rain-container"></div>
+    <div class="falling-circles-container" id="falling-circles-container"></div>
+    
+    <div class="overlay-gallery">
+        <img src="/images/products/OV/2.png" alt="Image 1">
+        <img src="/images/products/OV/2realcrimsoncure.png" alt="Image 2">
+        <img src="/images/products/OV/2Short2Congrats.png" alt="Image 3">
+        <img src="/images/products/OV/2tiehkay.png" alt="Image 4">
+        <img src="/images/products/OV/3HeadCharizard.png" alt="Image 5">
+        <img src="/images/products/OV/ChatShort2Arbor.png" alt="Image 6">
+        <img src="/images/products/OV/Display.png" alt="Image 7">
+        <img src="/images/products/OV/DS2.png" alt="Image 8">
+        <img src="/images/products/OV/DSSwitch.png" alt="Image 9">
+        <img src="/images/products/OV/meats_ball.png" alt="Image 10">
+        <img src="/images/products/OV/mkirk14_REJUpsd.png" alt="Image 11">
+        <img src="/images/products/OV/OVERLAY.png" alt="Image 12">
+        <img src="/images/products/OV/papichidoriOVER.png" alt="Image 13">
+        <img src="/images/products/OV/rajparikh396OVERLAY.png" alt="Image 14">
+        <img src="/images/products/OV/rucosaven.png" alt="Image 15">
+        <img src="/images/products/OV/shane_shrimpDS.png" alt="Image 16">
+        <img src="/images/products/OV/sniperace_ex.png" alt="Image 17">
+        <img src="/images/products/OV/stendeduxSH.png" alt="Image 18">
+        <img src="/images/products/OV/T2peridot_playz.png" alt="Image 19">
+        <img src="/images/products/OV/Test4.png" alt="Image 20">
+        <img src="/images/products/OV/tiehkay.png" alt="Image 21">
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="image-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="Enlarged Image">
+            <div class="modal-description">
+                <p id="modal-text">Image description goes here...</p>
+                <div class="modal-links">
+                    <a href="#"><img src="/images/link1.png" alt="Link 1"></a>
+                    <a href="#"><img src="/images/link2.png" alt="Link 2"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('/Nav/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+            
+        fetch('/Nav/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>  
+
+    <script src="/script.js"></script>
+    <script src="/DropDown/showcase.js"></script>
+</body>
+</html>

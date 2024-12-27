@@ -3,22 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designs - FateCreates</title>
+    <title>Designs - FateCreates</title>    
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/home.css">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&display=swap" rel="stylesheet">
     <link rel="preload" href="./fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
     <link rel="preload" href="./fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
-    <style>
-        @font-face {
-            font-family: 'Trueno';
-            src: url('./fonts/TRUENOBLK.OTF') format('opentype');
-            font-weight: 900; /* Black weight */
-        }
-        
-    </style>
 </head>
 <body id="home">
-    <div id="header-placeholder" include-html="/Nav\header.html"></div> 
+    <div id="header-placeholder" include-html="/Nav/header.html"></div> 
     <main>
         <div class="rain-container"></div>
         <div class="falling-circles-container" id="falling-circles-container"></div>
@@ -270,14 +263,22 @@
     <!-- FOOOOOTER -->
     <div id="footer-placeholder"></div>
 <script>
+    fetch('/Nav/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    
     fetch('/Nav/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
         });
 </script>
-    <!-- END FOOOOOTER -->
+    <!-- END FOOOOOTER -->    
+     <script src="/home.js"></script>
     <script src="/script.js"></script>
+
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

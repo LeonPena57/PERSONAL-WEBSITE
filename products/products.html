@@ -3,23 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - FateCreates</title>
+    <title>Product - FateCreates</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/products/products.css">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="preload" href="/fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
-    <style>
-        @font-face {
-            font-family: 'Trueno';
-            src: url('/fonts/TRUENOBLK.OTF') format('opentype');
-            font-weight: 900; /* Black weight */
-        }
-    </style>
+    <link rel="preload" href="./fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="./fonts/TRUENOLGT.OTF" as="font" type="font/otf" crossorigin="anonymous">
 </head>
-<body id="products">
-        <div class="rain-container"></div><div class="falling-circles-container" id="falling-circles-container"></div>
+<body id="product">
+    
+    <div class="rain-container"></div><div class="falling-circles-container" id="falling-circles-container"></div>
     <div id="header-placeholder"></div>
+        <!--
         <div id="PREV">
             <h1 class="New-Products">-LIVE PREVIEW-</h1>
             <p>Check out the streamers using my graphics!</p>
@@ -34,11 +29,11 @@
                 allowfullscreen="true">
             </iframe>
         </div>
-
+        -->
         <p id="PTitle">Coming Soon</p>
 
         <div id="PREV">
-            <h1 class="New-Products">-NEW PRODUCTS-</h1>
+            <h1 class="New-Product" class="FIRSTTITLE">-NEW PRODUCTS-</h1>
         </div>
 
         <p id="smallTEXT" class="smallTEXT">Check out our latest products!</p> <!-- Ensure this element is in the correct position -->
@@ -74,13 +69,13 @@
         </div>
         
         <div id="PREV">
-            <h1 class="New-Products">-BEST SELLING-</h1>
+            <h1 class="New-Product">-BEST SELLING-</h1>
         </div>
 
         <div class="gallery-container flipped">
             <!-- Second Section (Flipped) -->
             <div class="text-box">
-                <h1>STREAM OVERLAYS</h1>
+                <h1>CUSTOM OVERLAYS</h1>
                 <p>Along with offering custom overlays, we've created an easy, fast way for you to design your own overlay in no time! Choose from a variety of themes, including:</p>
                 <ul>
                     <li>Shiny Hunting</li>
@@ -94,13 +89,14 @@
             </div>
             <div class="image-section">
                 <div class="main-image-container">
-                    <img id="main-image" src="/images/main/Overlay1.png" alt="Main Image" onclick="openPopup('/images/main/Overlay1.png', 0)">
+                    <img id="main-image" src="/images/products/Overlay1.png" alt="Main Image" onclick="openPopup('/images/products/Overlay1.png', 0)">
                 </div>
                 <div class="thumbnail-container">
                     <button class="overlay-arrows" id="prev" onclick="prevThumbnailImage()">&#10094;</button>
                     <div class="thumbnails">
-                        <img id="thumbnail-1" src="/images/main/Overlay2.png" alt="Thumbnail 1" onclick="openPopup('/images/main/Overlay2.png', 1)">
-                        <img id="thumbnail-2" src="/images/main/Overlay3.png" alt="Thumbnail 2" onclick="openPopup('/images/main/Overlay3.png', 2)">
+                        <img id="thumbnail-1" src="/images/products/Overlay2.png" alt="Thumbnail 1" onclick="openPopup('/images/products/Overlay2.png', 1)">
+                        <img id="thumbnail-2" src="/images/products/Overlay3.png" alt="Thumbnail 2" onclick="openPopup('/images/products/Overlay3.png', 2)">
+                        <img id="thumbnail-3" src="/images/products/Overlay4.png" alt="Thumbnail 3" onclick="openPopup('/images/products/Overlay4.png', 3)">
                     </div>
                     <button class="overlay-arrows" id="next" onclick="nextThumbnailImage()">&#10095;</button>
                 </div>
@@ -108,26 +104,27 @@
         </div>
         
         <div id="PREV">
-            <h1 class="New-Products">-THUMBNAILS-</h1>
+            <h1 class="New-Product">-MORE SERVICES-</h1>
         </div>
 
         <div class="gallery-container">
             <!-- Third Section (Original) -->
             <div class="image-section">
                 <div class="main-image-container">
-                    <img id="main-image" src="/images/main/Overlay1.png" alt="Main Image" onclick="openPopup('/images/main/Overlay1.png', 0)">
+                    <img id="main-image" src="/images/products/TN1.png" alt="Main Image" onclick="openPopup('/images/products/TN1.png', 0)">
                 </div>
                 <div class="thumbnail-container">
                     <button class="overlay-arrows" id="prev" onclick="prevThumbnailImage()">&#10094;</button>
                     <div class="thumbnails">
-                        <img id="thumbnail-1" src="/images/main/Overlay2.png" alt="Thumbnail 1" onclick="openPopup('/images/main/Overlay2.png', 1)">
-                        <img id="thumbnail-2" src="/images/main/Overlay3.png" alt="Thumbnail 2" onclick="openPopup('/images/main/Overlay3.png', 2)">
+                        <img id="thumbnail-1" src="/images/products/TN2.png" alt="Thumbnail 1" onclick="openPopup('/images/products/TN2.png', 1)">
+                        <img id="thumbnail-2" src="/images/products/TN3.png" alt="Thumbnail 2" onclick="openPopup('/images/products/TN3.png', 2)">
+                        <img id="thumbnail-2" src="/images/products/TN4.png" alt="Thumbnail 2" onclick="openPopup('/images/products/TN4.png', 3)">
                     </div>
                     <button class="overlay-arrows" id="next" onclick="nextThumbnailImage()">&#10095;</button>
                 </div>
             </div>
             <div class="text-box">
-                <h1>STREAM OVERLAYS</h1>
+                <h1>THUMBNAILS</h1>
                 <p>Along with offering custom overlays, we've created an easy, fast way for you to design your own overlay in no time! Choose from a variety of themes, including:</p>
                 <ul>
                     <li>Shiny Hunting</li>
@@ -142,7 +139,7 @@
         </div>
 
         <div id="PREV">
-            <h1 class="New-Products">-OTHER GRAPHICS-</h1>
+            <h1 class="New-Product">-OTHER GRAPHICS-</h1>
         </div>
 
         <div class="gallery-container flipped">
@@ -191,5 +188,6 @@
             });
     </script>
     <script src="/products/products.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

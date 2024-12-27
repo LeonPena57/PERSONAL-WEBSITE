@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designs - FateCreates</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/designs/designs.css"> <!-- Page-specific styles -->
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&display=swap" rel="stylesheet">
     <link rel="preload" href="/fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
@@ -85,9 +85,6 @@
 
     
     <main>
-        
-        <div class="rain-container"></div>
-        <div class="falling-circles-container" id="falling-circles-container"></div>
         <h1 class="title">RECENT WORK</h1>
         <div class="carousel-container">
             <div class="carousel" id="image-carousel">
@@ -120,6 +117,12 @@
     </main>
     <div id="footer-placeholder"></div>
     <script>
+        fetch('/Nav/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+            
         fetch('/Nav/footer.html')
             .then(response => response.text())
             .then(data => {

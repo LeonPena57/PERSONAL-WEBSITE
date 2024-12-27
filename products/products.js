@@ -77,29 +77,3 @@ function initGallery() {
 document.addEventListener('DOMContentLoaded', () => {
     initGallery();
 });
-
-// RAIN //
-document.addEventListener('DOMContentLoaded', () => {
-    const rainContainer = document.querySelector('.rain-container');
-
-    for (let i = 0; i < 100; i++) {
-        const rain = document.createElement('div');
-        rain.className = 'rain';
-
-        // Randomize color and opacity
-        if (Math.random() > 0.9) {
-            rain.style.backgroundColor = 'lightblue'; // Occasionally light blue
-            rain.style.opacity = Math.random() * 0.5 + 0.5; // Higher opacity for light blue
-        } else {
-            rain.style.opacity = Math.random() * 0.5 + 0.1; // Random opacity
-        }
-
-        rain.style.left = Math.random() * 100 + 'vw';
-        rain.style.animationDuration = (Math.random() * 1.5 + 0.5) + 's, ' + (Math.random() * 2 + 1) + 's';
-        rain.style.animationDelay = Math.random() * 2 + 's, ' + (Math.random() * 8 + 2) + 's';
-        rain.style.height = Math.random() * 60 + 20 + 'px';
-        rainContainer.appendChild(rain);
-    }
-});
-
-// END RAIN //
