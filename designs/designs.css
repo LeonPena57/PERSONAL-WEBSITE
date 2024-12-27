@@ -1,17 +1,3 @@
-/* --------- PHOTO GALLERY -------- */
-
-body {
-    font-family: 'TRUENO BLACK', sans-serif;
-}
-
-/* Reset styles for all elements */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none; /* Remove outlines */
-}
-
 /* Gallery container setup */
 .row {
     display: flex;
@@ -325,15 +311,4 @@ body {
         grid-column: span 1; /* Ensure all items span 1 column on small screens */
         grid-row: span 1; /* Ensure all items span 1 row on small screens */
     }
-}
-
-/* Footer styles (make sure to add this) */
-footer {
-    background-color: #1a1a1a; /* Set your footer background color */
-    padding: 20px; /* Add some padding */
-    color: white; /* Footer text color */
-    text-align: center; /* Center footer text */
-    border: none; /* Remove white outline */
-    position: relative; /* Optional: relative positioning */
-    z-index: 5; /* Ensure it stays above other elements */
 }

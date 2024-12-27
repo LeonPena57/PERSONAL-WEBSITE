@@ -1,29 +1,37 @@
-/* General styles */
-body {
-    font-family: 'Trueno', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #111;
+#Heading {
     color: white;
-    overflow-x: hidden;
+    margin-top: 180px;
+    font-size: 36px;
+    text-align: center;
+    font-family: 'Trueno', sans-serif;
+}
+
+#Sub-Heading {
+    color: white;
+    font-size: 24px;
+    margin-top: 55px;
+    margin-bottom: 100px;
+    text-align: center;
+    font-family: 'Trueno', sans-serif;
 }
 
 /* Container for the gallery */
 .overlay-gallery {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 images per row */
-    gap: 4px; /* Further reduced gap between images */
-    justify-items: center; /* Center images horizontally */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow images to wrap onto the next line */
+    justify-content: center; /* Center the rows */
+    gap: 35px; /* Space between images */
     margin: 20px auto; /* Center the gallery on the page */
-    padding-top: 200px; /* 200px padding above the top image to avoid hitting the header */
+    padding-top: 25px; /* Padding above the gallery */
+    max-width: calc(300px * 5 + 20px); /* Ensure the gallery fits 5 images per row */
 }
 
 /* Style for the images */
 .overlay-gallery img {
-    width: 100%; /* Ensure the images fill their grid cells */
-    max-width: 350px; /* Maximum width of 350px (smaller size) */
-    height: auto; /* Maintain the aspect ratio */
-    object-fit: contain; /* Preserve aspect ratio without distorting */
+    flex: 1 1 calc(20% - 5px); /* 20% width per image minus the gap */
+    max-width: 300px; /* Limit the maximum width of images */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Preserve aspect ratio without distortion */
     border-radius: 8px; /* Optional: Add rounded corners */
     cursor: pointer; /* Show pointer on hover */
     transition: transform 0.3s ease; /* Smooth hover effect */
@@ -50,7 +58,7 @@ body {
 /* Modal content */
 .modal-content {
     background-color: #fff;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Width of the modal */

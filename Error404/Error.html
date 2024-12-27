@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404</title>
-    <link rel="stylesheet" href="/all.css"> <!-- Common styles -->
+    <link rel="stylesheet" href="/styles.css"> <!-- Common styles -->
     <link rel="stylesheet" href="/Error404/Error404.css">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&display=swap" rel="stylesheet">
     <link rel="preload" href="/fonts/TRUENOBLK.OTF" as="font" type="font/otf" crossorigin="anonymous">
@@ -27,18 +27,11 @@
 </body>
 
 <div id="header-placeholder" include-html="/Nav/header.html"></div>
-<div id="footer-placeholder"></div>
 <script>
     fetch('/Nav/header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
-        });
-        
-    fetch('/Nav/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
         });
 </script> 
 <script src="/script.js"></script>
