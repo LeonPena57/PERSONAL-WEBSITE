@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designs - FateCreates</title>
+    <title>Products - FateCreates</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/products/products.css">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat&display=swap" rel="stylesheet">
@@ -18,14 +18,12 @@
     </style>
 </head>
 <body id="products">
-    <div id="header-placeholder" include-html="/Nav/header.html"></div>
-    
-    <main>
-        <div class="rain-container"></div>
-        <div class="falling-circles-container" id="falling-circles-container"></div>
-
-        <p id="PTitle">Live Prevew</p>
-        <p id="smallTEXT">Check out the streamers using my service!</p>
+        <div class="rain-container"></div><div class="falling-circles-container" id="falling-circles-container"></div>
+    <div id="header-placeholder"></div>
+        <div id="PREV">
+            <h1 class="New-Products">-LIVE PREVIEW-</h1>
+            <p>Check out the streamers using my graphics!</p>
+        </div>
         <div class="live-stream">
             <iframe
                 src="https://www.twitch.tv/short2fuse/clip/LitigiousObedientChipmunkTheRinger-ldwyzk4SR1VuyvTv?filter=clips&range=all&sort=time"
@@ -39,7 +37,11 @@
 
         <p id="PTitle">Coming Soon</p>
 
-        <h1 class="New-Products">-NEW PRODUCTS-</h1>
+        <div id="PREV">
+            <h1 class="New-Products">-NEW PRODUCTS-</h1>
+        </div>
+
+        <p id="smallTEXT" class="smallTEXT">Check out our latest products!</p> <!-- Ensure this element is in the correct position -->
 
         <div class="gallery-container">
             <!-- First Section (Original) -->
@@ -71,6 +73,10 @@
             </div>
         </div>
         
+        <div id="PREV">
+            <h1 class="New-Products">-BEST SELLING-</h1>
+        </div>
+
         <div class="gallery-container flipped">
             <!-- Second Section (Flipped) -->
             <div class="text-box">
@@ -101,6 +107,10 @@
             </div>
         </div>
         
+        <div id="PREV">
+            <h1 class="New-Products">-THUMBNAILS-</h1>
+        </div>
+
         <div class="gallery-container">
             <!-- Third Section (Original) -->
             <div class="image-section">
@@ -130,11 +140,50 @@
                 <button>Get Started</button>
             </div>
         </div>
-        
 
-    </main>
+        <div id="PREV">
+            <h1 class="New-Products">-OTHER GRAPHICS-</h1>
+        </div>
+
+        <div class="gallery-container flipped">
+            <!-- Second Section (Flipped) -->
+            <div class="text-box">
+                <h1>STREAM OVERLAYS</h1>
+                <p>Along with offering custom overlays, we've created an easy, fast way for you to design your own overlay in no time! Choose from a variety of themes, including:</p>
+                <ul>
+                    <li>Shiny Hunting</li>
+                    <li>General Playthrough</li>
+                    <li>Pokemon VS</li>
+                    <li>Nuzlocke</li>
+                    <li>And Many More!</li>
+                </ul>
+                <p>Your creativity is at the heart of our design. Customize everything, from unique Poké Balls to backgrounds and border colors, and create a personalized overlay that suits your style perfectly!</p>
+                <button>Get Started</button>
+            </div>
+            <div class="image-section">
+                <div class="main-image-container">
+                    <img id="main-image" src="/images/main/Overlay1.png" alt="Main Image" onclick="openPopup('/images/main/Overlay1.png', 0)">
+                </div>
+                <div class="thumbnail-container">
+                    <button class="overlay-arrows" id="prev" onclick="prevThumbnailImage()">&#10094;</button>
+                    <div class="thumbnails">
+                        <img id="thumbnail-1" src="/images/main/Overlay2.png" alt="Thumbnail 1" onclick="openPopup('/images/main/Overlay2.png', 1)">
+                        <img id="thumbnail-2" src="/images/main/Overlay3.png" alt="Thumbnail 2" onclick="openPopup('/images/main/Overlay3.png', 2)">
+                    </div>
+                    <button class="overlay-arrows" id="next" onclick="nextThumbnailImage()">&#10095;</button>
+                </div>
+            </div>
+        </div>
+
     <div id="footer-placeholder"></div>
+    
     <script>
+        fetch('/Nav/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+        
         fetch('/Nav/footer.html')
             .then(response => response.text())
             .then(data => {
